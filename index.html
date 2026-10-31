@@ -55,7 +55,7 @@ img{max-width:100%;display:block}
 a{color:var(--gold)}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
 h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.12;margin:0;text-wrap:balance}
-h1{font-size:clamp(40px,7.4vw,76px);letter-spacing:-.005em}
+h1{font-size:clamp(34px,7.4vw,76px);letter-spacing:-.005em}
 h2{font-size:clamp(30px,4.6vw,46px)}
 h3{font-size:22px}
 p{margin:0}
@@ -129,6 +129,17 @@ th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vert
 th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 td.r,th.r{text-align:right}
 tr:last-child td{border-bottom:0}
+/* phones: stack each condo so the rent column is not hidden behind a sideways scroll */
+@media (max-width:600px){
+  .tbl table,.tbl tbody{display:block;min-width:0}
+  .tbl thead{display:none}
+  .tbl tr{display:grid;grid-template-columns:1fr auto;column-gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .tbl tr:last-child{border-bottom:0}
+  .tbl td{display:block;padding:0;border:0}
+  .tbl td:nth-child(2)::after{content:" psf"}
+  .tbl td:nth-child(3){grid-column:1/-1;margin-top:4px;font-size:14px;color:var(--muted)}
+  .tbl td:nth-child(3)::before{content:"Sewa: "}
+}
 .src{margin-top:12px;font-size:13px;color:var(--muted)}
 /* map */
 .map{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg2)}
@@ -214,7 +225,7 @@ function logLead(type,data){
     (function(){
       var H={
         keluarga:['Rumah <em>freehold</em> untuk keluarga di Bukit Jelutong.','3 bilik, 2 bilik air, 2 parking. Dari <strong class="num">RM450k</strong>. Kolam kanak-kanak dan wet play di bawah rumah.','Freehold family homes in Bukit Jelutong. 3-bedroom from RM450k, with a kids’ pool and wet play.'],
-        pelabur:['Satu unit, <em>dua pintu</em>.<br>Freehold di Bukit Jelutong.','Pilihan dual key: duduk bahagian utama, sewakan studio. 3 bilik dari <strong class="num">RM450k</strong>, 2 parking.','Dual key option: live in the main unit, rent out the studio. Freehold, 3-bedroom from RM450k.'],
+        pelabur:['Satu unit, <em>dua pintu</em>.<br>Freehold di Bukit&nbsp;Jelutong.','Pilihan dual key: duduk bahagian utama, sewakan studio. 3 bilik dari <strong class="num">RM450k</strong>, 2 parking.','Dual key option: live in the main unit, rent out the studio. Freehold, 3-bedroom from RM450k.'],
         en:['New <em>freehold</em> homes<br>in Bukit Jelutong.','3 bedrooms, 2 bathrooms, 2 car parks. From <strong class="num">RM450k</strong>. A Bukit Jelutong address without the landed price.','Rumah freehold baru di Bukit Jelutong, Shah Alam. 3 bilik dari RM450k. Showroom dijangka November 2026.']
       };
       try{
