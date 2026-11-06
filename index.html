@@ -20,9 +20,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap">
-<link rel="preload" as="image" href="assets/hero-m-0.webp" media="(max-width: 819px)">
-<link rel="preload" as="image" href="assets/hero-d-0.webp" media="(min-width: 820px)">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="assets/peta/z6.webp">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebSite","@id":"https://fcgfelixcheng.com/rumahbukitjelutong/#site","url":"https://fcgfelixcheng.com/rumahbukitjelutong/","name":"Jelutong Heights","inLanguage":"ms-MY"},
@@ -41,12 +40,12 @@
 ]}
 </script>
 <style>
-/* Jelutong Heights pre-launch. Developer-launch look: full-bleed dusk render of our own concept towers,
-   deep Bukit Jelutong green, one warm dusk accent taken from the lit windows. Condensed caps for the few big words. */
+/* Jelutong Heights pre-launch, told as one flight: clouds, Google satellite zoom from Selangor to the lot,
+   the towers, the deck, the units, the price, then registration. Same story as the 58 s video. */
 :root{
   --rimba:#12352B; --rimba-2:#1C4637; --rimba-3:#0C2820;
   --dusk:#F2A257; --dusk-2:#E58D3C; --dusk-ink:#2A1606;
-  --champ:#E9D8B8; --kabus:#F2F4EF; --putih:#FFFFFF;
+  --champ:#E9D8B8; --kabus:#F2F4EF; --krim:#F7F2E9; --putih:#FFFFFF;
   --ink:#14201B; --muted:#56655D; --line:rgba(20,32,27,.12); --line-d:rgba(233,216,184,.22);
   --f-disp:"Big Shoulders Display","Arial Narrow","Helvetica Neue",sans-serif;
   --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -72,16 +71,16 @@ a{color:inherit}
 .btn:active{transform:scale(.97)}
 .btn-dusk{background:var(--dusk);color:var(--dusk-ink)}
 .btn-dusk:hover{background:#F6B470}
+.btn-rimba{background:var(--rimba);color:#fff}
 .btn-ghost{border-color:rgba(255,255,255,.6);color:#fff;background:rgba(12,40,32,.18);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.btn-ghost:hover{border-color:#fff}
 .btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
 .btn-sm{min-height:40px;padding:0 16px;font-size:14px}
 .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.chip{display:inline-block;background:var(--dusk);color:var(--dusk-ink);font:700 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;padding:8px 13px;border-radius:999px}
 
 /* header */
-.top{position:fixed;inset:0 0 auto;z-index:40;color:#fff;transition:background .3s,box-shadow .3s}
+.top{position:fixed;inset:0 0 auto;z-index:40;color:#fff;background:rgba(18,53,43,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line-d)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.top.solid{background:rgba(18,53,43,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line-d)}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .brand img{width:28px;height:28px;border-radius:7px}
 .brand b{display:block;font:600 15px/1.1 var(--f-body)}
@@ -90,34 +89,71 @@ a{color:inherit}
 .snd{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
 .snd .off{display:none}.snd[aria-pressed="false"] .on{display:none}.snd[aria-pressed="false"] .off{display:block}
 
-/* hero */
-.hero{position:relative;min-height:100vh;min-height:100svh;color:#fff;background:var(--rimba-3);overflow:hidden;isolation:isolate}
-.hp,.hp img{position:absolute;inset:0;width:100%;height:100%}
-.hp img{object-fit:cover;object-position:50% 50%}
-.hp.lit{opacity:0;transition:opacity 2.8s ease}
-.hero.on .hp.lit{opacity:1}
-.hp.off img{animation:settle 9s var(--ease) both}
-@keyframes settle{from{transform:scale(1.06)}to{transform:scale(1)}}
-.scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,40,32,.5) 0,rgba(12,40,32,.12) 30%,rgba(12,40,32,0) 40%,rgba(12,40,32,0) 58%,rgba(12,40,32,.86) 84%,var(--rimba-3) 100%)}
-.ilus{position:absolute;z-index:2;right:var(--gut);bottom:calc(176px + env(safe-area-inset-bottom,0px));font:500 11px/1 var(--f-body);letter-spacing:.06em;color:rgba(255,255,255,.75);background:rgba(12,40,32,.35);padding:6px 9px;border-radius:999px}
-.h-top{position:relative;padding-top:84px;text-shadow:0 1px 18px rgba(8,24,40,.45)}
-.h-top .eb{color:var(--champ)}
-.hero h1{margin:10px 0 0;font-weight:inherit}
-.h-big{display:block;font-size:clamp(76px,23vw,210px)}
-.h-name{display:block;margin-top:10px;font:500 clamp(18px,4.8vw,26px)/1.2 var(--f-body);letter-spacing:.01em}
-.h-lede{margin:10px 0 0;max-width:34ch;font-size:15px;color:rgba(255,255,255,.92)}
-.h-bot{position:absolute;left:0;right:0;bottom:0;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
-.facts{list-style:none;margin:0 0 16px;padding:0;display:grid;grid-template-columns:1.15fr 1.25fr .8fr}
-.facts li{padding:0 12px;border-left:1px solid var(--line-d)}
+/* ===== the flight: clouds -> Selangor -> the lot (scroll-driven) ===== */
+.story{position:relative;height:760vh;height:760svh;background:#0b1c2c}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#cloudc{z-index:3}
+#ov{position:absolute;inset:0;z-index:1;width:100%;height:100%;overflow:visible;pointer-events:none}
+.layer{position:absolute;inset:0;z-index:2;pointer-events:none}
+.mt{position:absolute;left:0;top:0;will-change:transform,opacity;opacity:0}
+.sh2{text-shadow:0 2px 14px rgba(0,0,0,.55),0 1px 2px rgba(0,0,0,.6)}
+.pin{position:absolute;left:0;top:0;width:0;height:0;opacity:0}
+.pin .dot{position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--dusk);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.pin .ring{position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;border:2.5px solid var(--dusk)}
+.pin .lab{position:absolute;white-space:nowrap;font:800 clamp(17px,4.6vw,30px)/1 var(--f-disp);letter-spacing:.06em;text-transform:uppercase;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.75),0 1px 2px rgba(0,0,0,.8)}
+.pin .lab i{display:block;margin-top:4px;font:600 clamp(11px,2.8vw,15px)/1.1 var(--f-body);letter-spacing:.1em;text-transform:none;color:#FFD9A8}
+.pin.big .lab{font-size:clamp(24px,6.6vw,44px)}
+.hero-ui{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;justify-content:space-between;padding:88px 0 calc(22px + env(safe-area-inset-bottom,0px));color:var(--rimba);will-change:opacity,transform}
+.hero-ui .eb{color:var(--rimba-2)}
+.hero-ui h1{margin:12px 0 0;font-weight:inherit}
+.h-big{display:block;font-size:clamp(84px,25vw,220px);font-weight:900;color:var(--rimba)}
+.h-name{display:block;margin-top:8px;font:800 clamp(26px,7.6vw,48px)/1 var(--f-disp);letter-spacing:.06em;text-transform:uppercase;color:var(--rimba-2)}
+.h-lede{margin:12px 0 0;max-width:30ch;font-size:16px;font-weight:500;color:var(--rimba-2)}
+.facts{list-style:none;margin:0 0 16px;padding:0;display:grid;grid-template-columns:1.1fr 1.3fr .8fr}
+.facts li{padding:0 12px;border-left:1px solid rgba(18,53,43,.2)}
 .facts li:first-child{padding-left:0;border-left:0}
-.facts b{display:block;font-size:30px;color:#fff}
-.facts span{display:block;margin-top:5px;font-size:12px;line-height:1.3;color:var(--champ)}
-.h-cta{display:flex;gap:10px}
-.h-cta .btn{flex:1}
-.up{opacity:0;transform:translateY(16px);animation:up .9s var(--ease) forwards;animation-delay:var(--d,0s)}
-@keyframes up{to{opacity:1;transform:none}}
+.facts b{display:block;font-size:30px;color:var(--rimba)}
+.facts span{display:block;margin-top:5px;font-size:12px;line-height:1.3;color:var(--rimba-2)}
+.h-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.h-cta .btn-vid{grid-column:1/-1;min-height:44px;border-color:rgba(18,53,43,.55);color:var(--rimba);background:rgba(255,255,255,.35)}
+.h-cta .btn-vid i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--rimba);color:#fff;font-style:normal;font-size:10px;padding-left:2px}
+.hint{position:absolute;z-index:5;left:50%;bottom:calc(262px + env(safe-area-inset-bottom,0px));white-space:nowrap;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;font:600 11px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--rimba);pointer-events:none}
+.hint svg{width:22px;height:22px;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+.gattr{position:absolute;z-index:2;left:12px;bottom:calc(8px + env(safe-area-inset-bottom,0px));font-size:10px;color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.9);pointer-events:none}
+.prog{position:absolute;z-index:5;left:0;right:0;top:60px;height:3px;background:rgba(255,255,255,.12)}
+.prog i{display:block;height:100%;width:100%;background:var(--dusk);transform-origin:left;transform:scaleX(0)}
+.sel-t{left:var(--gut)!important}
+.sel-t b{display:block;font:900 clamp(58px,17vw,140px)/.9 var(--f-disp);letter-spacing:.04em;color:#fff}
+.sel-t span{display:block;margin-top:6px;font:600 clamp(12px,3.2vw,18px)/1 var(--f-body);letter-spacing:.24em;color:#FFD9A8;text-transform:uppercase}
+.dist-h{font:700 11px/1 var(--f-body);letter-spacing:.22em;color:#FFD9A8;text-transform:uppercase}
+.dist{display:inline-flex;align-items:baseline;gap:10px;background:rgba(12,34,28,.8);padding:9px 14px;border-radius:10px;border-left:4px solid var(--dusk);color:#fff;font-size:14px;font-weight:600}
+.dist b{font:900 22px/1 var(--f-disp);color:var(--dusk)}
+.pill{display:inline-block;font:800 clamp(15px,3.8vw,22px)/1 var(--f-disp);letter-spacing:.16em;background:rgba(18,53,43,.82);color:#fff;padding:6px 12px;border-radius:7px}
+.tapak .chip{font-size:clamp(11px,2.9vw,15px)}
+.tapak b{display:block;margin-top:6px;font:800 clamp(18px,5vw,30px)/1 var(--f-disp);letter-spacing:.06em;color:#fff;text-transform:uppercase}
+.endcard{position:absolute;z-index:4;left:var(--gut);right:var(--gut);bottom:calc(84px + env(safe-area-inset-bottom,0px));max-width:520px;background:rgba(255,255,255,.96);color:var(--ink);border-radius:18px;padding:16px 18px;box-shadow:0 20px 50px rgba(0,0,0,.35);opacity:0;transform:translateY(20px);pointer-events:none}
+.endcard.on{pointer-events:auto}
+.endcard b{display:block;font:800 26px/1 var(--f-disp);text-transform:uppercase;color:var(--rimba)}
+.endcard p{margin:6px 0 12px;font-size:14px;color:var(--muted)}
+.endcard .btn{min-height:42px;font-size:14px}
 
-/* sections */
+/* ===== towers (Kling clips) ===== */
+.vp{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--rimba-3);color:#fff}
+.vp video,.vp .vposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--z,1.08));will-change:transform}
+.vp .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,40,32,.4) 0,rgba(12,40,32,0) 22%,rgba(12,40,32,0) 46%,rgba(12,40,32,.82) 78%,var(--rimba-3) 100%)}
+.ilus{position:absolute;z-index:2;right:var(--gut);top:76px;font:500 11px/1 var(--f-body);letter-spacing:.06em;color:rgba(255,255,255,.8);background:rgba(12,40,32,.35);padding:6px 9px;border-radius:999px}
+.vt{position:absolute;left:0;right:0;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:2}
+.vt h2{margin:14px 0 0;font-size:clamp(64px,19vw,140px);text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.vt p{margin:12px 0 0;max-width:34ch;font-size:16px;color:rgba(255,255,255,.9)}
+.vt .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.vt .tags span{font-size:13px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(12,40,32,.3)}
+.vframe{display:contents}
+
+/* reveal */
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js [data-r].in{opacity:1;transform:none}
 section{position:relative}
 .sec{padding:76px 0}
 .dark{background:var(--rimba);color:#fff}
@@ -127,67 +163,55 @@ section{position:relative}
 .sh h2{margin:12px 0 0;font-size:clamp(50px,13vw,104px)}
 .sh p{margin:14px 0 0;max-width:46ch;font-size:16px;color:var(--muted)}
 .dark .sh p{color:rgba(255,255,255,.78)}
-.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
-.js [data-r].in{opacity:1;transform:none}
 
-/* towers with callouts (signature) */
-.bld{display:grid;gap:36px}
-.callout{position:relative;margin:0;width:100%;max-width:540px;aspect-ratio:100/101.03}
-.callout img{position:absolute;right:0;top:0;width:64%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
-.callout svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.cl-l{fill:none;stroke:var(--dusk);stroke-width:.5;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1s var(--ease);transition-delay:var(--d,0s)}
-.cl-d{fill:var(--dusk);opacity:0;transition:opacity .4s;transition-delay:calc(var(--d,0s) + .8s)}
-.cl-r{fill:none;stroke:var(--dusk);stroke-width:.25;opacity:0}
-.callout.in .cl-l{stroke-dashoffset:0}
-.callout.in .cl-d{opacity:1}
-.callout.in .cl-r{animation:ring 2.4s ease-out infinite;animation-delay:calc(var(--d,0s) + 1s)}
-@keyframes ring{0%{opacity:.9;r:.9}100%{opacity:0;r:3.4}}
-.cl{position:absolute;left:0;width:34%;transform:translateY(-50%);text-align:right;font-size:12.5px;line-height:1.3;color:rgba(255,255,255,.78);opacity:0;transition:opacity .6s;transition-delay:calc(var(--d,0s) + .5s)}
-.cl b{display:block;font:800 17px/1 var(--f-disp);letter-spacing:.02em;text-transform:uppercase;color:#fff;margin-bottom:3px}
-.callout.in .cl{opacity:1}
-.cap{margin:14px 0 0;font-size:12px;color:rgba(255,255,255,.55)}
-
-/* location */
-.stats{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:26px 18px}
+/* location strip */
+.stats{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:24px 18px}
 .stats li{border-top:1.5px solid var(--ink);padding-top:12px}
 .stats b{display:block;font-size:clamp(46px,12vw,72px);color:var(--rimba)}
 .stats b small{font-size:.5em;margin-left:3px}
 .stats li>span{display:block;margin-top:6px;font-size:13.5px;line-height:1.35;color:var(--muted)}
-.map{position:relative;margin:40px 0 0;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:#E9EDE6}
-.map img{width:100%;height:100%;object-fit:cover}
-.map svg{position:absolute;inset:0;width:100%;height:100%}
-.rarc{fill:none;stroke:var(--rimba-2);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s var(--ease);transition-delay:var(--d,0s)}
-.rdot{fill:var(--rimba);opacity:0;transition:opacity .4s;transition-delay:calc(var(--d,0s) + 1.1s)}
-.rbj{fill:var(--dusk-2);stroke:#fff;stroke-width:2}
-.rring{fill:none;stroke:var(--dusk-2);stroke-width:2;opacity:0}
-.car{fill:var(--dusk-2)}
-.map.in .rarc{stroke-dashoffset:0}.map.in .rdot{opacity:1}
-.map.in .rring{animation:pulse 2.6s ease-out infinite;animation-delay:var(--d,0s)}
-@keyframes pulse{0%{opacity:.9;r:6}100%{opacity:0;r:24}}
-.rp{position:absolute;font:600 11.5px/1.2 var(--f-body);background:#fff;color:var(--ink);padding:5px 8px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 14px rgba(20,32,27,.12)}
-.rp b{color:var(--rimba-2);font-weight:600}
-.rp.bj{background:var(--rimba);color:#fff}
-.rcap{position:absolute;right:10px;bottom:8px;font-size:10px;color:rgba(20,32,27,.55)}
-.maplink{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:14px;padding:16px 18px;border-radius:14px;background:var(--putih);text-decoration:none;font-size:14.5px}
+.maplink{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:26px;padding:16px 18px;border-radius:14px;background:var(--putih);text-decoration:none;font-size:14.5px}
 .maplink b{display:block}
 .maplink>span>span{display:block;color:var(--muted);font-size:13px}
 .maplink .ico{color:var(--rimba-2)}
 
-/* units */
-.units{display:grid;grid-auto-flow:column;grid-auto-columns:84%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:36px calc(var(--gut) * -1) 0;padding:4px var(--gut) 14px;scroll-padding-inline:var(--gut);scrollbar-width:none}
-.units::-webkit-scrollbar{display:none}
-.unit{scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--putih)}
-.u-img{display:block;width:100%;aspect-ratio:4/3;padding:14px;border:0;background:#F6F7F4;cursor:zoom-in;position:relative}
-.u-img img{width:100%;height:100%;object-fit:contain}
-.u-img span{position:absolute;right:10px;bottom:10px;font:500 11px/1 var(--f-body);background:rgba(20,32,27,.75);color:#fff;padding:6px 9px;border-radius:999px}
-.u-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
-.u-size{margin:8px 0 0;font-size:64px;color:var(--rimba)}
-.u-size small{font-size:.38em;letter-spacing:.06em;margin-left:4px}
-.u-note{margin:8px 0 0;font-size:13.5px;color:var(--muted)}
-.u-price{margin:12px 0 16px;font-size:14px;color:var(--muted)}
-.u-price b{font:800 26px/1 var(--f-disp);color:var(--ink);margin-left:4px}
-.u-body .btn{margin-top:auto}
-.incl{margin-top:28px;padding:20px;border-radius:18px;background:var(--rimba);color:#fff}
+/* ===== facilities: stacked cards ===== */
+.fac{background:var(--kabus);padding:76px 0 40px}
+.stack{margin-top:30px}
+.sc{position:sticky;top:calc(76px + var(--i) * 12px);height:min(72vh,640px);height:min(72svh,640px);margin:0 0 16vh;border-radius:22px;overflow:hidden;background:#cfd8cf;box-shadow:0 -10px 40px rgba(12,40,32,.18)}
+.sc:last-child{margin-bottom:0}
+.sc img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);transition:transform 7s cubic-bezier(.2,.6,.2,1)}
+.sc.in img{transform:scale(1)}
+.sc figcaption{position:absolute;left:0;right:0;bottom:0;padding:70px 20px 20px;background:linear-gradient(180deg,transparent,rgba(12,40,32,.85));color:#fff}
+.sc figcaption span{display:block;font:700 12px/1 var(--f-body);letter-spacing:.2em;color:#FFD9A8}
+.sc figcaption b{display:block;margin-top:6px;font:900 clamp(46px,13vw,76px)/.9 var(--f-disp);text-transform:uppercase}
+.sc figcaption i{display:block;margin-top:6px;font-style:normal;font-size:15px;font-weight:600}
+.more{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;padding:0;list-style:none}
+.more li{font-size:13.5px;padding:8px 13px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.gal-note{margin:12px 0 0;font-size:12px;color:var(--muted)}
+
+/* ===== units ===== */
+.units-sec{background:var(--krim);padding:76px 0 30px}
+.unit{padding:46px 0;border-top:1px solid var(--line)}
+.unit:first-of-type{border-top:0}
+.ug{display:grid;gap:22px}
+.uhead h3{margin:10px 0 0;font-size:clamp(54px,15vw,96px);color:var(--rimba)}
+.uhead p{margin:10px 0 0;font-size:16px;color:var(--muted);max-width:36ch}
+.uhead .eb{color:#9a6a3a}
+.plan{position:relative;display:block;width:100%;padding:12px;border:0;border-radius:20px;background:#fff;cursor:zoom-in;box-shadow:0 30px 60px rgba(18,53,43,.16),0 4px 14px rgba(18,53,43,.1);opacity:0;transform:perspective(1200px) translateY(70px) rotateX(26deg) scale(.94);transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+.unit.in .plan{opacity:1;transform:none}
+.plan img{width:100%;height:auto}
+.plan>span{position:absolute;right:12px;bottom:12px;font:500 11px/1 var(--f-body);background:rgba(20,32,27,.75);color:#fff;padding:6px 9px;border-radius:999px}
+.plan .hl{position:absolute;border:4px solid var(--dusk);border-radius:10px;background:rgba(242,162,87,.16);box-shadow:0 0 30px rgba(242,162,87,.8);opacity:0;transition:opacity .6s 1.2s}
+.unit.in .plan .hl{opacity:1;animation:glow 2s ease-in-out 1.8s infinite}
+@keyframes glow{50%{box-shadow:0 0 6px rgba(242,162,87,.4)}}
+.plan .hl em{position:absolute;left:50%;top:-14px;transform:translateX(-50%);font:700 11px/1 var(--f-body);font-style:normal;letter-spacing:.12em;background:var(--dusk);color:var(--dusk-ink);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.unum .sz{display:block;font-size:clamp(110px,32vw,190px);color:var(--rimba);line-height:.8}
+.unum .sz small{font-size:.32em;margin-left:8px;color:var(--muted)}
+.unum .pr{margin:14px 0 18px;display:flex;align-items:flex-end;gap:12px;font:700 12px/1 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:#7b6a55}
+.unum .pr b{font:900 clamp(64px,18vw,104px)/.85 var(--f-disp);letter-spacing:0;color:#c97a2e}
+.unum .btn{width:100%}
+.incl{margin-top:20px;padding:20px;border-radius:18px;background:var(--rimba);color:#fff}
 .incl p{margin:0 0 12px;font-size:13px;color:var(--champ);letter-spacing:.04em}
 .incl ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .incl li{font-size:13.5px;padding:7px 12px;border-radius:999px;border:1px solid var(--line-d)}
@@ -212,25 +236,36 @@ section{position:relative}
 .landed .me b{color:var(--dusk)}
 .src{margin:18px 0 0;font-size:12px;color:rgba(255,255,255,.5)}
 
-/* facilities */
-.gal{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:32px 0 0;padding:0 var(--gut) 8px;scroll-padding-inline:var(--gut);scrollbar-width:none}
-.gal::-webkit-scrollbar{display:none}
-.gal figure{scroll-snap-align:start;margin:0;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:#DDE3DA}
-.gal img{width:100%;height:100%;object-fit:cover}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 16px;background:linear-gradient(180deg,transparent,rgba(12,40,32,.8));color:#fff;font:800 24px/1 var(--f-disp);text-transform:uppercase;letter-spacing:.02em}
-.gal-note{max-width:1180px;margin:10px auto 0;padding-inline:var(--gut);font-size:12px;color:var(--muted)}
+/* video */
+.vsec{background:var(--rimba-3)}
+.vg{display:grid;gap:28px;align-items:center}
+.vcard{position:relative;display:block;width:100%;max-width:420px;aspect-ratio:9/16;margin:0 auto;padding:0;border:0;border-radius:22px;overflow:hidden;background:#000;cursor:pointer;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.vcard img,.vcard video{width:100%;height:100%;object-fit:cover}
+.vcard .play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--dusk);display:grid;place-items:center;box-shadow:0 0 0 0 rgba(242,162,87,.6);animation:ping 2s infinite}
+.vcard .play svg{width:30px;height:30px;margin-left:5px;fill:var(--dusk-ink)}
+.vcard .dur{position:absolute;left:14px;bottom:14px;font:600 12px/1 var(--f-body);background:rgba(0,0,0,.6);color:#fff;padding:7px 10px;border-radius:999px}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(242,162,87,.6)}70%{box-shadow:0 0 0 22px rgba(242,162,87,0)}100%{box-shadow:0 0 0 0 rgba(242,162,87,0)}}
 
-/* register */
-.reg{background:var(--rimba-3)}
-.rg{display:grid;gap:34px}
+/* ===== pre-launch + register ===== */
+.reg{position:relative;background:var(--rimba-3);color:#fff;overflow:hidden}
+.regbg{position:absolute;left:0;right:0;top:-6%;height:120vh;height:120svh;z-index:0}
+.regbg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:translateY(var(--py,0px));will-change:transform}
+.regbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,40,32,.5) 0,rgba(12,40,32,.15) 25%,rgba(12,40,32,.45) 50%,rgba(12,40,32,.9) 78%,var(--rimba-3) 100%)}
+.reg .rg{position:relative;z-index:1;display:grid;gap:34px}
+.reg h2{margin:12px 0 0;font-size:clamp(66px,19vw,150px);text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.reg h2 em{font-style:normal;color:var(--dusk)}
+.psf{margin:18px 0 0;font-size:17px;font-weight:600}
+.psf b{display:block;font-size:clamp(70px,20vw,120px);color:#fff;line-height:.85;margin-top:4px}
+.psf b small{font-size:.42em;margin-left:6px}
+.reg .lede{margin:16px 0 0;max-width:44ch;font-size:15.5px;color:rgba(255,255,255,.85)}
 .live{display:inline-flex;align-items:center;gap:8px}
 .live i{width:8px;height:8px;border-radius:50%;background:#5BE08C;box-shadow:0 0 0 0 rgba(91,224,140,.6);animation:blink 2s infinite}
 @keyframes blink{0%{box-shadow:0 0 0 0 rgba(91,224,140,.6)}70%{box-shadow:0 0 0 10px rgba(91,224,140,0)}100%{box-shadow:0 0 0 0 rgba(91,224,140,0)}}
-.perks{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
-.perks li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;font-size:14.5px;color:rgba(255,255,255,.82)}
-.perks li::before{content:"";width:10px;height:10px;margin-top:6px;border-radius:50%;background:var(--dusk)}
-.perks b{color:#fff}
-.card{background:var(--putih);color:var(--ink);border-radius:22px;padding:22px 18px}
+.ticks{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.ticks li{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600}
+.ticks li::before{content:"✓";flex:none;width:26px;height:26px;border-radius:50%;background:var(--dusk);color:var(--dusk-ink);display:grid;place-items:center;font-size:14px;font-weight:700}
+.ticks li.hot{color:var(--dusk)}
+.card{background:var(--putih);color:var(--ink);border-radius:22px;padding:22px 18px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
 .card h3{margin:0;font:800 30px/1 var(--f-disp);text-transform:uppercase}
 .card .sub{margin:6px 0 16px;font-size:13.5px;color:var(--muted)}
 .form{display:grid;gap:14px}
@@ -286,34 +321,42 @@ footer a{color:var(--champ)}
 /* wider screens */
 @media (min-width:820px){
   :root{--gut:40px}
-  .hp img{object-position:62% 50%}
-  .scrim{background:linear-gradient(90deg,rgba(12,40,32,.7) 0,rgba(12,40,32,.25) 42%,rgba(12,40,32,0) 60%),linear-gradient(180deg,rgba(12,40,32,.35) 0,rgba(12,40,32,0) 22%,rgba(12,40,32,0) 70%,rgba(12,40,32,.75) 100%)}
-  .ilus{bottom:24px}
-  .h-top{padding-top:22vh}
-  .h-big{font-size:clamp(120px,13vw,210px)}
-  .h-lede{font-size:17px}
-  .h-bot{position:absolute;bottom:0;padding-bottom:48px}
-  .h-bot .wrap,.h-bot{max-width:1180px;margin:0 auto}
+  .hero-ui{padding-top:120px}
+  .h-lede{font-size:18px}
   .facts{max-width:560px}
   .facts b{font-size:40px}
-  .h-cta{max-width:560px}
-  .h-cta .btn{flex:none;min-width:200px}
+  .h-cta{max-width:560px;grid-template-columns:1fr 1fr 1fr}
+  .h-cta .btn-vid{grid-column:auto;min-height:50px}
+  .hint{bottom:40px;left:auto;right:48px;transform:none}
+  .endcard{left:auto;right:40px;bottom:40px}
   .sec{padding:120px 0}
-  .bld{grid-template-columns:1fr 1fr;align-items:center}
-  .callout{justify-self:end}
+  .vp{height:auto;min-height:100vh;display:flex;align-items:center;padding:100px 0}
+  .vp video,.vp .vposter{position:relative;inset:auto;width:auto;height:min(82vh,860px);aspect-ratio:9/16;border-radius:24px;box-shadow:0 40px 90px rgba(0,0,0,.45);transform:scale(var(--z,1));margin-left:auto}
+  .vp .shade{display:none}
+  .vp .vframe{display:flex;align-items:center;gap:60px;max-width:1180px;margin:0 auto;padding-inline:var(--gut);width:100%}
+  .vp .vt{position:relative;bottom:auto;flex:1;order:-1}
+  .vp .vt .wrap{padding:0}
+  .vp.rev .vt{order:2}
+  .vp.rev video,.vp.rev .vposter{margin-left:0;margin-right:auto}
+  .ilus{top:auto;bottom:30px}
   .stats{grid-template-columns:repeat(4,1fr)}
-  .units{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin:44px 0 0;padding:0}
-  .gal{grid-auto-columns:30%;padding-inline:max(var(--gut),calc((100vw - 1180px)/2 + var(--gut)))}
-  .rg{grid-template-columns:1fr 440px;align-items:start}
+  .fac .fg{display:grid;grid-template-columns:1fr 480px;gap:70px;align-items:start}
+  .fac .fg .sh{position:sticky;top:140px}
+  .stack{margin-top:0}
+  .ug{grid-template-columns:1fr 1.25fr;align-items:center;column-gap:60px}
+  .ug .plan{grid-column:2;grid-row:1/3}
+  .unit.alt .ug .plan{grid-column:1}
+  .unit.alt .ug .uhead,.unit.alt .ug .unum{grid-column:2}
+  .unum .btn{width:auto;min-width:240px}
+  .vg{grid-template-columns:1fr 420px}
+  .reg .rg{grid-template-columns:1fr 440px;align-items:start}
   .card{padding:28px}
   .bar{display:none}
   footer{padding-bottom:40px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001s!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001s!important;transition-delay:0s!important}
-  .js [data-r]{opacity:1;transform:none}
-  .callout.in .cl-r,.map.in .rring{display:none}
+  .hint svg,.live i,.vcard .play,.unit.in .plan .hl{animation:none}
 }
 </style>
 <script>
@@ -349,79 +392,102 @@ function logLead(type,data){
 </header>
 
 <main>
-<section class="hero" id="hero">
-  <picture class="hp off">
-    <source media="(min-width:820px)" srcset="assets/hero-d-0.webp">
-    <img src="assets/hero-m-0.webp" alt="Ilustrasi konsep dua menara kediaman freehold di Bukit Jelutong waktu dusk" width="1080" height="1920" fetchpriority="high">
-  </picture>
-  <picture class="hp lit" aria-hidden="true">
-    <source media="(min-width:820px)" srcset="assets/hero-d-1.webp">
-    <img id="litImg" src="assets/hero-m-1.webp" alt="" width="1080" height="1920" decoding="async">
-  </picture>
-  <div class="scrim"></div>
-  <span class="ilus">Ilustrasi konsep</span>
-
-  <div class="h-top wrap">
-    <span class="eb up" id="h-eb" style="--d:.15s">Pra-pelancaran · Bukit Jelutong</span>
-    <h1><span class="h-big disp up" id="h-big" style="--d:.25s">Freehold</span><span class="h-name up" style="--d:.4s">Jelutong Heights, Bukit Jelutong</span></h1>
-    <p class="h-lede up" id="h-lede" style="--d:.5s">Kediaman baharu. Daftar awal dari RM493 psf.</p>
-  </div>
-
-  <div class="h-bot">
-    <div class="wrap">
-      <ul class="facts up" style="--d:.7s">
-        <li><b class="disp">RM493</b><span>psf, harga daftar awal</span></li>
-        <li><b class="disp">630-917</b><span>sqft · 2R, 3R, dual key</span></li>
-        <li><b class="disp">2</b><span>parking setiap unit</span></li>
-      </ul>
-      <div class="h-cta up" style="--d:.85s">
-        <a class="btn btn-dusk" href="#daftar">Daftar awal</a>
-        <a class="btn btn-ghost" data-wa href="https://wa.me/60182131314?text=Hi%20Felix%2C%20saya%20nak%20info%20Jelutong%20Heights%20(freehold%2C%20Bukit%20Jelutong).">WhatsApp</a>
-      </div>
+<!-- 1-3: clouds -> Google satellite Selangor -> zoom to the lot. Scroll drives the flight. -->
+<section class="story" id="hero" aria-label="Dari awan ke tapak projek di Bukit Jelutong">
+  <div class="stage" id="stage">
+    <canvas id="mapc" aria-hidden="true"></canvas>
+    <svg id="ov" aria-hidden="true">
+      <defs><filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <path id="selFill" fill="rgba(242,162,87,0.16)" fill-rule="evenodd"/>
+      <path id="selLine" fill="none" stroke="#F2A257" stroke-width="3" stroke-linejoin="round" filter="url(#glow)"/>
+      <path id="siteFill" fill="rgba(242,162,87,0.3)"/>
+      <path id="siteLine" fill="none" stroke="#FFD08A" stroke-width="4" stroke-linejoin="round" filter="url(#glow)"/>
+    </svg>
+    <div class="layer" id="pins"></div>
+    <div class="layer" id="caps">
+      <div class="mt sel-t sh2" id="cSel"><b>SELANGOR</b><span>Lembah Klang</span></div>
+      <div class="mt" id="cDistH" style="left:var(--gut)"><span class="dist-h sh2">Jarak memandu</span></div>
+      <div class="mt" data-dist style="left:var(--gut)"><span class="dist"><b>10 km</b>Lapangan Terbang Subang</span></div>
+      <div class="mt" data-dist style="left:var(--gut)"><span class="dist"><b>11 km</b>Shah Alam</span></div>
+      <div class="mt" data-dist style="left:var(--gut)"><span class="dist"><b>18 km</b>Petaling Jaya</span></div>
+      <div class="mt" data-dist style="left:var(--gut)"><span class="dist"><b>24 km</b>KL Sentral</span></div>
+      <div class="mt" id="cNkve"><span class="pill">NKVE</span></div>
+      <div class="mt sh2" id="cGolf"><span class="pill" style="background:rgba(18,53,43,.55)">PADANG GOLF</span></div>
+      <div class="mt tapak sh2" id="cSite"><span class="chip">Tapak projek</span><b>Seksyen U8</b></div>
     </div>
+    <canvas id="cloudc" aria-hidden="true"></canvas>
+    <div class="hero-ui" id="heroUi">
+      <div class="wrap">
+        <span class="eb" id="h-eb">Pra-pelancaran · Bukit Jelutong</span>
+        <h1><span class="h-big disp" id="h-big">Freehold</span><span class="h-name">Jelutong Heights</span></h1>
+        <p class="h-lede" id="h-lede">Kediaman baharu. Daftar awal dari RM493 psf.</p>
+      </div>
+      <div class="wrap">
+        <ul class="facts">
+          <li><b class="disp">RM493</b><span>psf, harga daftar awal</span></li>
+          <li><b class="disp">630-917</b><span>sqft · 2R, 3R, dual key</span></li>
+          <li><b class="disp">2</b><span>parking setiap unit</span></li>
+        </ul>
+        <div class="h-cta">
+          <a class="btn btn-dusk" href="#daftar">Daftar awal</a>
+          <a class="btn btn-rimba" data-wa href="https://wa.me/60182131314?text=Hi%20Felix%2C%20saya%20nak%20info%20Jelutong%20Heights%20(freehold%2C%20Bukit%20Jelutong).">WhatsApp</a>
+          <a class="btn btn-vid" href="#video" data-playvid><i>▶</i>Tonton video 58 saat</a>
+        </div>
+      </div>
+      <script>
+      /* ad-matched hero: ?v=keluarga | pelabur | en. No param = default copy, which is what Google indexes. */
+      (function(){
+        var H={
+          keluarga:['Freehold','Rumah keluarga di Bukit Jelutong. 3 bilik 821 sqft, anggaran RM405k.'],
+          pelabur:['Dual key','Satu unit, dua pintu. 917 sqft: duduk, sewakan studio. Anggaran RM452k.'],
+          en:['Freehold','New launch in Bukit Jelutong. Early registration from RM493 psf.','Pre-launch · Bukit Jelutong']
+        };
+        try{
+          var h=H[(new URLSearchParams(location.search).get('v')||'').toLowerCase()];
+          if(h){document.getElementById('h-big').textContent=h[0];document.getElementById('h-lede').textContent=h[1];if(h[2])document.getElementById('h-eb').textContent=h[2]}
+        }catch(e){}
+      })();
+      </script>
+    </div>
+    <div class="hint" id="hint"><span>Skrol · terbang ke tapak</span><svg class="ico" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="endcard" id="endcard">
+      <b>Depan NKVE.</b>
+      <p>Masjid ± 250 m, tasik dan padang golf dekat. Papan tanda dah naik, boleh pergi tengok.</p>
+      <a class="btn btn-rimba" href="https://maps.app.goo.gl/5BhJRU1hbetAKWFf8" target="_blank" rel="noopener">Buka di Google Maps</a>
+    </div>
+    <div class="gattr" id="gattr"></div>
+    <div class="prog" aria-hidden="true"><i id="progBar"></i></div>
   </div>
-  <script>
-  /* ad-matched hero: ?v=keluarga | pelabur | en. No param = default copy, which is what Google indexes. */
-  (function(){
-    var H={
-      keluarga:['Freehold','Rumah keluarga di Bukit Jelutong. 3 bilik 821 sqft, anggaran RM405k.'],
-      pelabur:['Dual key','Satu unit, dua pintu. 917 sqft: duduk, sewakan studio. Anggaran RM452k.'],
-      en:['Freehold','New launch in Bukit Jelutong. Early registration from RM493 psf.','Pre-launch · Bukit Jelutong']
-    };
-    try{
-      var h=H[(new URLSearchParams(location.search).get('v')||'').toLowerCase()];
-      if(h){document.getElementById('h-big').textContent=h[0];document.getElementById('h-lede').textContent=h[1];if(h[2])document.getElementById('h-eb').textContent=h[2]}
-    }catch(e){}
-  })();
-  </script>
 </section>
 
-<section id="bangunan" class="dark sec">
-  <div class="wrap bld">
-    <div class="sh" data-r>
-      <span class="eb">Dua blok sahaja</span>
-      <h2 class="disp">Low<br>density.</h2>
-      <p>Dua menara di atas podium, dengan dek kemudahan untuk penghuni. Siap lebih kurang 3 tahun dari tarikh SPA.</p>
+<!-- 4: the towers -->
+<section id="bangunan" aria-label="Bangunan">
+  <div class="vp" data-zoom>
+    <div class="vframe">
+      <video class="bgv" muted loop playsinline autoplay preload="metadata" poster="assets/v/orbit-poster.webp" aria-label="Ilustrasi konsep dua menara, rakaman dron berputar"><source src="assets/v/orbit.mp4" type="video/mp4"></video>
+      <div class="shade"></div>
+      <div class="vt"><div class="wrap" data-r>
+        <span class="chip">Freehold</span>
+        <h2 class="disp">2 blok<br>sahaja.</h2>
+        <p>Low density. Dua menara di atas podium, dengan dek kemudahan untuk penghuni. Depan NKVE.</p>
+        <div class="tags"><span>Seksyen U8, Bukit Jelutong</span><span>Siap ± 3 tahun dari SPA</span></div>
+      </div></div>
     </div>
-    <figure class="callout" id="callout" data-sfx="sparkle">
-      <img src="assets/menara.webp" alt="Ilustrasi konsep dua menara dan podium Jelutong Heights" width="1011" height="1596" loading="lazy">
-      <svg viewBox="0 0 100 101.03" preserveAspectRatio="none" aria-hidden="true">
-        <polyline class="cl-l" pathLength="1" style="--d:0s" points="35,8.1 45,8.1 48.8,3.5"/>
-        <polyline class="cl-l" pathLength="1" style="--d:.25s" points="35,45.5 55.2,45.5"/>
-        <polyline class="cl-l" pathLength="1" style="--d:.5s" points="35,73.8 49,73.8 53.3,79.3"/>
-        <polyline class="cl-l" pathLength="1" style="--d:.75s" points="35,90.9 64.8,90.9"/>
-        <circle class="cl-d" style="--d:0s" cx="48.8" cy="3.5" r="1.1"/><circle class="cl-r" style="--d:0s" cx="48.8" cy="3.5" r="1.1"/>
-        <circle class="cl-d" style="--d:.25s" cx="55.2" cy="45.5" r="1.1"/><circle class="cl-r" style="--d:.25s" cx="55.2" cy="45.5" r="1.1"/>
-        <circle class="cl-d" style="--d:.5s" cx="53.3" cy="79.3" r="1.1"/><circle class="cl-r" style="--d:.5s" cx="53.3" cy="79.3" r="1.1"/>
-        <circle class="cl-d" style="--d:.75s" cx="64.8" cy="90.9" r="1.1"/><circle class="cl-r" style="--d:.75s" cx="64.8" cy="90.9" r="1.1"/>
-      </svg>
-      <span class="cl" style="top:8%;--d:0s"><b>2 blok</b>low density</span>
-      <span class="cl" style="top:45%;--d:.25s"><b>Dual key</b>917 sqft, studio pintu sendiri</span>
-      <span class="cl" style="top:73%;--d:.5s"><b>Dek</b>kolam 25m, wet play, gym, BBQ</span>
-      <span class="cl" style="top:90%;--d:.75s"><b>2 parking</b>setiap unit</span>
-    </figure>
+    <span class="ilus">Ilustrasi konsep</span>
   </div>
-  <div class="wrap"><p class="cap">Ilustrasi konsep sahaja. Reka bentuk sebenar dikongsi semasa pelancaran.</p></div>
+  <div class="vp rev" data-zoom>
+    <div class="vframe">
+      <video class="bgv" muted loop playsinline autoplay preload="none" poster="assets/v/street-poster.webp" aria-label="Ilustrasi konsep laluan masuk dan lobi"><source src="assets/v/street.mp4" type="video/mp4"></video>
+      <div class="shade"></div>
+      <div class="vt"><div class="wrap" data-r>
+        <span class="chip">Setiap unit</span>
+        <h2 class="disp">2 parking.</h2>
+        <p>Laluan masuk berlandskap terus ke lobi. Dual key 917 sqft untuk duduk dan sewa.</p>
+        <div class="tags"><span>2R · 3R · Dual key</span><span>630 hingga 917 sqft</span></div>
+      </div></div>
+    </div>
+    <span class="ilus">Ilustrasi konsep</span>
+  </div>
 </section>
 
 <section id="lokasi" class="light sec">
@@ -437,37 +503,6 @@ function logLead(type,data){
       <li data-r style="--d:.16s"><b class="disp"><span class="cu" data-to="15">15</span><small>min</small></b><span>Lapangan Terbang Subang</span></li>
       <li data-r style="--d:.24s"><b class="disp"><span class="cu" data-to="26">26</span><small>min</small></b><span>KL Sentral, jalan lengang</span></li>
     </ul>
-    <div class="map" id="map" data-r role="img" aria-label="Peta jarak memandu dari Bukit Jelutong ke Shah Alam, Klang, Subang Jaya, Petaling Jaya, KL Sentral dan Lapangan Terbang Subang">
-      <img src="assets/peta-kawasan.jpg" alt="" width="800" height="600" loading="lazy">
-      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <path id="a1" class="rarc" pathLength="1" style="--d:0s" d="M157.2,153.0 Q138.1,163.1 132.7,184.0"/>
-        <path id="a2" class="rarc" pathLength="1" style="--d:.15s" d="M157.2,153.0 Q174.3,135.0 172.5,110.2"/>
-        <path id="a3" class="rarc" pathLength="1" style="--d:.3s" d="M157.2,153.0 Q199.9,170.1 216.1,213.1"/>
-        <path id="a4" class="rarc" pathLength="1" style="--d:.45s" d="M157.2,153.0 Q227.5,121.1 298.6,151.4"/>
-        <path id="a5" class="rarc" pathLength="1" style="--d:.6s" d="M157.2,153.0 Q111.8,214.0 36.1,221.8"/>
-        <path id="a6" class="rarc" pathLength="1" style="--d:.75s" d="M157.2,153.0 Q244.4,86.4 352.4,105.6"/>
-        <circle class="rdot" cx="132.7" cy="184" r="4" style="--d:0s"/>
-        <circle class="rdot" cx="172.5" cy="110.2" r="4" style="--d:.15s"/>
-        <circle class="rdot" cx="216.1" cy="213.1" r="4" style="--d:.3s"/>
-        <circle class="rdot" cx="298.6" cy="151.4" r="4" style="--d:.45s"/>
-        <circle class="rdot" cx="36.1" cy="221.8" r="4" style="--d:.6s"/>
-        <circle class="rdot" cx="352.4" cy="105.6" r="4" style="--d:.75s"/>
-        <circle class="car" r="2.6"><animateMotion dur="2.6s" repeatCount="indefinite" begin="indefinite"><mpath href="#a6"/></animateMotion></circle>
-        <circle class="car" r="2.6"><animateMotion dur="2.2s" repeatCount="indefinite" begin="indefinite"><mpath href="#a4"/></animateMotion></circle>
-        <circle class="car" r="2.6"><animateMotion dur="2.4s" repeatCount="indefinite" begin="indefinite"><mpath href="#a5"/></animateMotion></circle>
-        <circle class="rring" cx="157.2" cy="153" r="6" style="--d:.2s"/>
-        <circle class="rring" cx="157.2" cy="153" r="6" style="--d:1.5s"/>
-        <circle class="rbj" cx="157.2" cy="153" r="6"/>
-      </svg>
-      <span class="rp bj" style="left:39.3%;top:47.5%;transform:translate(-50%,-130%)">Jelutong Heights</span>
-      <span class="rp" style="left:33.2%;top:63.5%;transform:translate(-90%,0)">Shah Alam <b>11 km</b></span>
-      <span class="rp" style="left:43.1%;top:34.5%;transform:translate(-85%,-100%)">Airport Subang <b>10 km</b></span>
-      <span class="rp" style="left:54%;top:74%;transform:translate(-50%,0)">Subang Jaya <b>13 km</b></span>
-      <span class="rp" style="left:74.6%;top:52.5%;transform:translate(-50%,0)">PJ <b>18 km</b></span>
-      <span class="rp" style="left:9%;top:76%;transform:translate(-10%,0)">Klang <b>20 km</b></span>
-      <span class="rp" style="left:88.1%;top:32.7%;transform:translate(-75%,-100%)">KL Sentral <b>24 km</b></span>
-      <span class="rcap">Jarak memandu anggaran · © OpenStreetMap contributors</span>
-    </div>
     <a class="maplink" href="https://maps.app.goo.gl/5BhJRU1hbetAKWFf8" target="_blank" rel="noopener" data-r>
       <span><b>Papan tanda dah naik. Boleh pergi tengok.</b><span>Seksyen U8, Bukit Jelutong, 40160 Shah Alam</span></span>
       <svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
@@ -475,43 +510,57 @@ function logLead(type,data){
   </div>
 </section>
 
-<section id="saiz" class="white sec">
+<!-- 5: facilities -->
+<section id="kemudahan" class="fac">
+  <div class="wrap fg">
+    <div class="sh" data-r>
+      <span class="eb">Kemudahan</span>
+      <h2 class="disp">Hidup di dek.</h2>
+      <p>Kolam, gym, BBQ halal dan non-halal, musolla dan laman untuk semua umur.</p>
+      <ul class="more"><li>Kolam sosial</li><li>Bilik yoga</li><li>Laman</li><li>Musolla</li></ul>
+      <p class="gal-note">Ilustrasi konsep.</p>
+    </div>
+    <div class="stack">
+      <figure class="sc" style="--i:0"><img src="assets/v/kolam.webp" alt="Ilustrasi konsep kolam renang 25m di dek, menara di belakang" width="900" height="1592" loading="lazy"><figcaption><span>01 / 05</span><b>Kolam 25m</b><i>Renang pagi di dek</i></figcaption></figure>
+      <figure class="sc" style="--i:1"><img src="assets/v/wetplay.webp" alt="Ilustrasi konsep kawasan wet play" width="900" height="1592" loading="lazy"><figcaption><span>02 / 05</span><b>Wet play</b><i>Untuk seisi keluarga</i></figcaption></figure>
+      <figure class="sc" style="--i:2"><img src="assets/v/gym.webp" alt="Ilustrasi konsep gym dengan dinding kaca" width="900" height="1592" loading="lazy"><figcaption><span>03 / 05</span><b>Gym</b><i>Pandangan hijau</i></figcaption></figure>
+      <figure class="sc" style="--i:3"><img src="assets/v/bbq.webp" alt="Ilustrasi konsep sudut BBQ di dek waktu petang" width="900" height="1592" loading="lazy"><figcaption><span>04 / 05</span><b>Sudut BBQ</b><i>Halal &amp; non-halal</i></figcaption></figure>
+      <figure class="sc" style="--i:4"><img src="assets/v/dek.webp" alt="Ilustrasi konsep dek tinjauan atas bumbung" width="900" height="1592" loading="lazy"><figcaption><span>05 / 05</span><b>Dek tinjauan</b><i>Pemandangan ke arah KL</i></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6-7: units, size, price -->
+<section id="saiz" class="units-sec">
   <div class="wrap">
     <div class="sh" data-r>
       <span class="eb">Saiz unit · dari RM493 psf</span>
       <h2 class="disp">Pilih saiz.</h2>
       <p>Tiga susun atur, semua dengan 2 parking.</p>
     </div>
-    <div class="units" id="units">
-      <article class="unit" data-r>
-        <button class="u-img" type="button" aria-label="Besarkan pelan 3 bilik 821 sqft"><img src="assets/pelan-3bilik-821.webp" alt="Pelan susun atur 3 bilik 2 bilik air, 821 sqft" width="1100" height="623" loading="lazy"><span>Tekan untuk besarkan</span></button>
-        <div class="u-body">
-          <span class="eb">3 bilik · 2 bilik air</span>
-          <b class="u-size disp">821<small>sqft</small></b>
-          <p class="u-price">Anggaran <b>RM405k</b></p>
-          <a class="btn btn-dusk" href="#daftar" data-unit="3 Bilik 821 sqft">Daftar unit ini</a>
-        </div>
-      </article>
-      <article class="unit" data-r style="--d:.08s">
-        <button class="u-img" type="button" aria-label="Besarkan pelan dual key 917 sqft"><img src="assets/pelan-dualkey-917.webp" alt="Pelan dual key 917 sqft: 3 bilik 2 bilik air, dan studio dengan bilik air sendiri" width="1100" height="975" loading="lazy"><span>Tekan untuk besarkan</span></button>
-        <div class="u-body">
-          <span class="eb">Dual key · 3R2B + studio</span>
-          <b class="u-size disp">917<small>sqft</small></b>
-          <p class="u-note">Studio dengan pintu dan bilik air sendiri. Duduk, sewakan studio.</p>
-          <p class="u-price">Anggaran <b>RM452k</b></p>
-          <a class="btn btn-dusk" href="#daftar" data-unit="Dual Key 917 sqft">Daftar unit ini</a>
-        </div>
-      </article>
-      <article class="unit" data-r style="--d:.16s">
-        <button class="u-img" type="button" aria-label="Besarkan pelan 2 bilik 630 sqft"><img src="assets/pelan-2bilik-630.webp" alt="Pelan susun atur 2 bilik, 630 sqft" width="1100" height="1065" loading="lazy"><span>Tekan untuk besarkan</span></button>
-        <div class="u-body">
-          <span class="eb">2 bilik</span>
-          <b class="u-size disp">630<small>sqft</small></b>
-          <p class="u-price">Anggaran <b>RM311k</b></p>
-          <a class="btn btn-dusk" href="#daftar" data-unit="2 Bilik 630 sqft">Daftar unit ini</a>
-        </div>
-      </article>
+  </div>
+  <article class="unit" data-r>
+    <div class="wrap ug">
+      <div class="uhead"><span class="eb">3 bilik · 2 bilik air</span><h3 class="disp">Keluarga<br>3 bilik</h3><p>Ruang untuk anak membesar.</p></div>
+      <button class="plan" type="button" aria-label="Besarkan pelan 3 bilik 821 sqft"><img src="assets/pelan-3bilik-821.webp" alt="Pelan susun atur 3 bilik 2 bilik air, 821 sqft" width="1100" height="623" loading="lazy"><span>Tekan untuk besarkan</span></button>
+      <div class="unum"><b class="sz disp"><span class="cu" data-to="821">821</span><small>sqft</small></b><p class="pr">Anggaran <b>RM<span class="cu" data-to="405">405</span>k</b></p><a class="btn btn-dusk" href="#daftar" data-unit="3 Bilik 821 sqft">Daftar unit ini</a></div>
     </div>
+  </article>
+  <article class="unit alt" data-r>
+    <div class="wrap ug">
+      <div class="uhead"><span class="eb">Dual key · 3R2B + studio</span><h3 class="disp">Dual key</h3><p>Studio dengan pintu dan bilik air sendiri. Duduk, sewakan studio.</p></div>
+      <button class="plan" type="button" aria-label="Besarkan pelan dual key 917 sqft"><img src="assets/pelan-dualkey-917.webp" alt="Pelan dual key 917 sqft: 3 bilik 2 bilik air, dan studio dengan bilik air sendiri" width="1100" height="975" loading="lazy"><i class="hl" style="left:calc(12px + (100% - 24px) * .738);top:calc(12px + (100% - 24px) * .139);width:calc((100% - 24px) * .242);height:calc((100% - 24px) * .589)"><em>STUDIO</em></i><span>Tekan untuk besarkan</span></button>
+      <div class="unum"><b class="sz disp"><span class="cu" data-to="917">917</span><small>sqft</small></b><p class="pr">Anggaran <b>RM<span class="cu" data-to="452">452</span>k</b></p><a class="btn btn-dusk" href="#daftar" data-unit="Dual Key 917 sqft">Daftar unit ini</a></div>
+    </div>
+  </article>
+  <article class="unit" data-r>
+    <div class="wrap ug">
+      <div class="uhead"><span class="eb">2 bilik</span><h3 class="disp">Pasangan<br>2 bilik</h3><p>Rumah pertama, freehold.</p></div>
+      <button class="plan" type="button" aria-label="Besarkan pelan 2 bilik 630 sqft"><img src="assets/pelan-2bilik-630.webp" alt="Pelan susun atur 2 bilik, 630 sqft" width="1100" height="1065" loading="lazy"><span>Tekan untuk besarkan</span></button>
+      <div class="unum"><b class="sz disp"><span class="cu" data-to="630">630</span><small>sqft</small></b><p class="pr">Anggaran <b>RM<span class="cu" data-to="311">311</span>k</b></p><a class="btn btn-dusk" href="#daftar" data-unit="2 Bilik 630 sqft">Daftar unit ini</a></div>
+    </div>
+  </article>
+  <div class="wrap">
     <div class="incl" data-r>
       <p>Daftar awal termasuk</p>
       <ul><li>Kabinet dapur</li><li>2 aircond</li><li>2 water heater</li><li>Peti sejuk</li><li>Lampu LED</li><li class="hot">MOT percuma</li></ul>
@@ -542,38 +591,31 @@ function logLead(type,data){
   </div>
 </section>
 
-<section id="kemudahan" class="light sec">
-  <div class="wrap">
-    <div class="sh" data-r>
-      <span class="eb">Kemudahan</span>
-      <h2 class="disp">Hidup di dek.</h2>
-      <p>Kolam, gym, BBQ halal dan non-halal, musolla dan laman untuk semua umur.</p>
+<section id="video" class="vsec sec">
+  <div class="wrap vg">
+    <div class="sh" data-r style="color:#fff">
+      <span class="eb" style="color:var(--champ)">Video · 58 saat</span>
+      <h2 class="disp">Tengok<br>sendiri.</h2>
+      <p style="color:rgba(255,255,255,.78)">Dari awan ke tapak, menara, kemudahan dan saiz unit. Hidupkan bunyi.</p>
     </div>
+    <button class="vcard" id="vcard" type="button" aria-label="Main video 58 saat" data-r>
+      <img src="assets/v/video-poster.webp" alt="Muka depan video Jelutong Heights" width="720" height="1280" loading="lazy">
+      <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
+      <span class="dur">0:58</span>
+    </button>
   </div>
-  <div class="gal" data-r>
-    <figure><img src="assets/kemudahan-kolam-25m.webp" alt="" loading="lazy"><figcaption>Kolam 25m</figcaption></figure>
-    <figure><img src="assets/kemudahan-kolam-sosial.webp" alt="" loading="lazy"><figcaption>Kolam sosial</figcaption></figure>
-    <figure><img src="assets/kemudahan-wet-play.webp" alt="" loading="lazy"><figcaption>Wet play</figcaption></figure>
-    <figure><img src="assets/kemudahan-gym.webp" alt="" loading="lazy"><figcaption>Gym</figcaption></figure>
-    <figure><img src="assets/kemudahan-bbq.webp" alt="" loading="lazy"><figcaption>Sudut BBQ</figcaption></figure>
-    <figure><img src="assets/kemudahan-yoga.webp" alt="" loading="lazy"><figcaption>Bilik yoga</figcaption></figure>
-    <figure><img src="assets/kemudahan-laman.webp" alt="" loading="lazy"><figcaption>Laman</figcaption></figure>
-    <figure><img src="assets/kemudahan-dek.webp" alt="" loading="lazy"><figcaption>Dek tinjauan</figcaption></figure>
-  </div>
-  <p class="gal-note">Gambar hiasan.</p>
 </section>
 
-<section id="daftar" class="dark reg sec">
-  <div class="wrap rg">
-    <div class="sh" data-r>
-      <span class="eb live"><i></i>Pendaftaran dibuka</span>
-      <h2 class="disp">Daftar<br>awal.</h2>
-      <p>Percuma, tiada bayaran. Pendaftar awal dihubungi dulu untuk pilih unit, tingkat dan pandangan. Showroom dijangka November 2026.</p>
-      <ul class="perks">
-        <li><span><b>RM493 psf</b> harga daftar awal</span></li>
-        <li><span><b>Partially furnished:</b> kabinet dapur, 2 aircond, 2 water heater, peti sejuk, lampu LED</span></li>
-        <li><span><b>MOT percuma</b></span></li>
-      </ul>
+<!-- 8-9: pre-launch now + register -->
+<section id="daftar" class="reg">
+  <div class="regbg" aria-hidden="true"><img src="assets/v/aerial.webp" alt="" width="1080" height="1910" loading="lazy"></div>
+  <div class="wrap rg sec">
+    <div data-r>
+      <span class="eb live" style="color:var(--champ)"><i></i>Pendaftaran dibuka</span>
+      <h2 class="disp">Pra-<br>pelancaran<br><em>sekarang.</em></h2>
+      <p class="psf">Daftar awal dari<b class="disp">RM<span class="cu" data-to="493">493</span><small>psf</small></b></p>
+      <ul class="ticks"><li>Kabinet dapur</li><li>2 aircond</li><li>2 water heater</li><li>Peti sejuk</li><li>Lampu LED</li><li class="hot">MOT percuma</li></ul>
+      <p class="lede">Percuma, tiada bayaran. Pendaftar awal dihubungi dulu untuk pilih unit, tingkat dan pandangan. Showroom dijangka November 2026.</p>
     </div>
     <div class="card" data-r style="--d:.1s">
       <h3>Kunci harga awal</h3>
@@ -629,7 +671,8 @@ function logLead(type,data){
 <footer>
   <div class="wrap">
     <p class="who">Jelutong Heights · Felix · WhatsApp <a data-wa href="https://wa.me/60182131314">018-213 1314</a></p>
-    <p>Maklumat di laman ini ialah maklumat awal sebelum pelancaran. Butiran rasmi mengikut dokumen pemaju semasa pelancaran. Imej bangunan ialah ilustrasi konsep, bukan reka bentuk sebenar. Gambar kemudahan ialah gambar hiasan. Data harga dan sewa sekitar dari Brickz.my dan Mudah.my, Oktober 2026. Peta dilukis dari data © OpenStreetMap contributors.</p>
+    <p>Maklumat di laman ini ialah maklumat awal sebelum pelancaran. Butiran rasmi mengikut dokumen pemaju semasa pelancaran. Imej bangunan dan kemudahan ialah ilustrasi konsep, bukan reka bentuk sebenar. Data harga dan sewa sekitar dari Brickz.my dan Mudah.my, Oktober 2026.</p>
+    <p>Imej satelit: Google Maps (Imagery ©2026 Airbus, CNES / Airbus, Maxar Technologies, NASA). Sempadan negeri: geoBoundaries. Garis tapak: © OpenStreetMap contributors. Muzik video: “Dream Culture” Kevin MacLeod (incompetech.com), CC BY 4.0.</p>
     <p><a href="privasi/">Notis privasi</a></p>
   </div>
 </footer>
@@ -682,6 +725,183 @@ var SFX=(function(){
   return {unlock:unlock,play:function(k){try{S[k]&&S[k]()}catch(e){}},isOn:function(){return on},set:function(v){on=v;try{localStorage.setItem('bj-sfx',v?'1':'0')}catch(e){}}};
 })();
 
+/* ===== the flight: clouds (WebGL) + Google satellite zoom (canvas) + labels, driven by scroll ===== */
+(function(){
+  var GEO={"sel":[[[101.2499,2.9077],[101.2594,2.9225],[101.2537,2.9661],[101.2298,2.9458],[101.2355,2.9041]],[[101.3064,2.9785],[101.2904,2.9755],[101.2642,2.9492],[101.2659,2.9169],[101.2759,2.9194]],[[101.2789,2.8986],[101.2743,2.8939],[101.2853,2.8841],[101.3211,2.9147],[101.3413,2.8957],[101.3475,2.8967],[101.3369,2.9266],[101.3495,2.9315],[101.3709,2.9752],[101.3902,2.9915],[101.3546,2.9953],[101.3267,2.9782],[101.3085,2.9591]],[[101.2501,2.9933],[101.2623,3.0027],[101.2599,3.0164],[101.2235,3.0043],[101.2,2.9496],[101.2145,2.9532]],[[101.2501,3.0193],[101.2588,3.0198],[101.2804,3.0425],[101.2683,3.0575],[101.2596,3.0585],[101.2344,3.0448],[101.2096,3.0069],[101.217,3.0046]],[[101.276,2.9983],[101.2644,2.9798],[101.2635,2.9528],[101.2788,2.9604],[101.2895,2.9759],[101.3349,2.9977],[101.3344,3.0645],[101.3212,3.0691],[101.3044,3.0633]],[[100.9307,3.8691],[100.8858,3.8535],[100.8582,3.8547],[100.8193,3.8462],[100.8096,3.8025],[100.8139,3.7846],[100.8225,3.7775],[100.8706,3.7691],[100.917,3.7255],[100.9396,3.6756],[100.9774,3.6698],[101.0377,3.6187],[101.0559,3.593],[101.1036,3.4813],[101.1625,3.3989],[101.1763,3.3908],[101.192,3.3478],[101.2302,3.3316],[101.2993,3.2534],[101.307,3.1633],[101.3181,3.1125],[101.3293,3.1091],[101.3601,3.0731],[101.3566,3.0147],[101.3643,3.0009],[101.3869,3.0021],[101.3929,2.9958],[101.3939,2.9859],[101.3694,2.9601],[101.3579,2.9258],[101.339,2.9221],[101.3515,2.9053],[101.3503,2.8952],[101.3403,2.8927],[101.3204,2.9109],[101.2876,2.8766],[101.2934,2.8376],[101.3254,2.8319],[101.3618,2.8118],[101.4098,2.8046],[101.4081,2.7914],[101.4278,2.7747],[101.4627,2.7077],[101.48,2.6883],[101.5443,2.66],[101.575,2.6533],[101.6082,2.6333],[101.6717,2.6167],[101.6868,2.6086],[101.687,2.6007],[101.6965,2.5944],[101.7125,2.5953],[101.7037,2.6089],[101.7182,2.6193],[101.7303,2.6191],[101.7247,2.6356],[101.7475,2.6547],[101.7399,2.6727],[101.7515,2.6811],[101.7621,2.7029],[101.7515,2.8695],[101.8829,2.8669],[101.9342,2.9995],[101.9444,2.9994],[101.9429,3.0166],[101.9712,3.0353],[101.9504,3.1127],[101.9658,3.1391],[101.9422,3.1838],[101.9499,3.1904],[101.9515,3.2137],[101.9331,3.2437],[101.9367,3.2492],[101.9284,3.2585],[101.9127,3.2572],[101.904,3.2646],[101.8884,3.259],[101.8785,3.2704],[101.8694,3.2686],[101.8572,3.274],[101.8518,3.2844],[101.8294,3.2914],[101.7991,3.3319],[101.781,3.3394],[101.7806,3.3568],[101.7593,3.3716],[101.7654,3.3985],[101.7932,3.4245],[101.7854,3.4314],[101.7774,3.4648],[101.7682,3.4778],[101.7632,3.5082],[101.7873,3.547],[101.8066,3.5495],[101.8159,3.605],[101.8091,3.6139],[101.8017,3.6133],[101.7973,3.6272],[101.7875,3.6299],[101.7859,3.6492],[101.7685,3.666],[101.7686,3.6811],[101.7414,3.696],[101.7412,3.7094],[101.6859,3.7097],[101.6821,3.7197],[101.6583,3.73],[101.6248,3.7725],[101.5812,3.77],[101.5781,3.7201],[101.5722,3.7203],[101.5596,3.7035],[101.5481,3.7018],[101.5347,3.6823],[101.5193,3.6773],[101.4974,3.6992],[101.4802,3.7017],[101.4753,3.7129],[101.4595,3.7164],[101.4414,3.7525],[101.4239,3.7508],[101.4192,3.7588],[101.4096,3.7588],[101.3924,3.7736],[101.3873,3.7712],[101.3835,3.791],[101.3737,3.802],[101.3566,3.803],[101.3512,3.794],[101.3421,3.7964],[101.3267,3.7862],[101.347,3.7109],[101.3399,3.6924],[101.3107,3.6845],[101.3014,3.6721],[101.2955,3.6783],[101.2816,3.6736],[101.2804,3.6677],[101.264,3.6683],[101.245,3.6833],[101.25,3.7179],[101.24,3.7202],[101.2126,3.7077],[101.2129,3.7168],[101.2078,3.7138],[101.1976,3.7279],[101.1974,3.717],[101.1914,3.7223],[101.1748,3.7101],[101.1705,3.7202],[101.1761,3.715],[101.1914,3.7312],[101.1704,3.7277],[101.167,3.749],[101.1637,3.7249],[101.1551,3.7447],[101.1506,3.741],[101.1536,3.7285],[101.1351,3.7344],[101.1449,3.7468],[101.1359,3.7519],[101.1326,3.764],[101.1221,3.7363],[101.1094,3.7472],[101.1071,3.7339],[101.1017,3.7326],[101.0968,3.745],[101.084,3.7423],[101.0757,3.7286],[101.0799,3.7455],[101.0742,3.7589],[101.1017,3.7524],[101.0874,3.7673],[101.0897,3.7829],[101.0574,3.7541],[101.054,3.7775],[101.059,3.7956],[101.0279,3.7822],[101.031,3.7948],[101.0235,3.806],[101.0057,3.7986],[100.9949,3.8015],[100.9862,3.7942],[100.9834,3.7717],[100.9659,3.7725],[100.9589,3.793],[100.9776,3.8061],[100.9787,3.8156],[100.9688,3.8266],[100.9401,3.8323],[100.9454,3.8663]],[[101.6281,3.138],[101.6152,3.1529],[101.6191,3.1979],[101.6362,3.2156],[101.6374,3.2321],[101.6541,3.2343],[101.6636,3.2443],[101.6721,3.2277],[101.6968,3.2279],[101.7032,3.2153],[101.7147,3.2122],[101.7239,3.2287],[101.7403,3.2332],[101.7392,3.2152],[101.7592,3.1879],[101.7499,3.1752],[101.7339,3.1782],[101.7316,3.174],[101.7356,3.1648],[101.7507,3.1608],[101.7351,3.1357],[101.7394,3.1121],[101.7536,3.1036],[101.7453,3.0846],[101.7499,3.0555],[101.7309,3.0555],[101.7309,3.0364],[101.723,3.0336],[101.7141,3.0542],[101.7069,3.0461],[101.6685,3.0406],[101.6592,3.0587],[101.6489,3.0575],[101.6514,3.0665],[101.6464,3.0717],[101.6638,3.0858],[101.6597,3.1146],[101.6527,3.1101],[101.6434,3.1192],[101.647,3.1282],[101.6295,3.1306]],[[101.6805,2.8805],[101.6656,2.8798],[101.6597,2.8991],[101.672,2.9157],[101.6648,2.944],[101.6747,2.9468],[101.6628,2.9643],[101.7083,2.9824],[101.6998,2.9679],[101.7149,2.9636],[101.7152,2.955],[101.7309,2.9548],[101.7327,2.9292],[101.7075,2.9293],[101.7072,2.9133],[101.6976,2.9095],[101.7009,2.9]]],"site":[[3.097753,101.538206],[3.098161,101.537306],[3.09784,101.537118],[3.097638,101.537081],[3.097328,101.53705],[3.09698,101.537836],[3.097035,101.537888],[3.097753,101.538206]]};
+  var LAT=3.097673,LON=101.537301,TEND=13.1;
+  var story=document.getElementById('hero'),stage=document.getElementById('stage');
+  var mc=document.getElementById('mapc'),mctx=mc.getContext('2d');
+  var cc=document.getElementById('cloudc');
+  var heroUi=document.getElementById('heroUi'),hint=document.getElementById('hint'),gattr=document.getElementById('gattr'),prog=document.getElementById('progBar'),endcard=document.getElementById('endcard');
+  var W=0,H=0,DPR=1;
+  function clamp(x,a,b){return Math.min(b===undefined?1:b,Math.max(a===undefined?0:a,x))}
+  function lin(t,a,b){return clamp((t-a)/(b-a))}
+  function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
+  function eout(x){return 1-Math.pow(1-x,3)}
+  function eback(x){var c1=1.5,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)}
+  function win(t,a,b,fi,fo){fi=fi||.35;fo=fo||.35;return Math.min(lin(t,a,a+fi),1-lin(t,b-fo,b))}
+
+  /* zoom path (same keyframes as the video) */
+  var ZK=[[0,5.0],[2.9,7.75],[4.9,8.35],[5.6,9.6],[6.2,10.1],[7.8,10.85],[8.8,12.6],[10.4,15.4],[12.0,17.1],[13.1,17.3]];
+  var zcAt=(function(K){var n=K.length,x=K.map(function(k){return k[0]}),y=K.map(function(k){return k[1]}),d=[],m=[],i;
+    for(i=0;i<n-1;i++)d.push((y[i+1]-y[i])/(x[i+1]-x[i]));m[0]=d[0];m[n-1]=d[n-2];
+    for(i=1;i<n-1;i++)m[i]=d[i-1]*d[i]<=0?0:3*(x[i+1]-x[i-1])/((2*x[i+1]-x[i]-x[i-1])/d[i-1]+(x[i+1]+x[i]-2*x[i-1])/d[i]);
+    return function(t){if(t<=x[0])return y[0];if(t>=x[n-1])return y[n-1];var j=0;while(t>x[j+1])j++;var h=x[j+1]-x[j],s=(t-x[j])/h;
+      return (2*s*s*s-3*s*s+1)*y[j]+(s*s*s-2*s*s+s)*h*m[j]+(-2*s*s*s+3*s*s)*y[j+1]+(s*s*s-s*s)*h*m[j+1]}})(ZK);
+
+  /* web mercator */
+  function mx(lon){return (lon+180)/360}
+  function my(lat){var s=Math.sin(lat*Math.PI/180);return .5-Math.log((1+s)/(1-s))/(4*Math.PI)}
+  var CX=mx(LON),CY=my(LAT);
+  function frame(){return Math.min(W/1080,H/1920)}
+  var SHIFT=0;
+  function proj(lat,lon,zc){var k=256*Math.pow(2,zc+1)*frame();return [W/2+(mx(lon)-CX)*k,H/2+SHIFT+(my(lat)-CY)*k]}
+
+  /* map levels z6..z18: Google satellite, labels off, all centred on the lot (2800x4000 capture, served at 1400x2000) */
+  var LV={},LOADING={},order=[6,7,8,9,10,11,12,13,14,15,16,17,18];
+  function load(z){if(LV[z]||LOADING[z])return;LOADING[z]=1;var im=new Image();im.decoding='async';im.onload=function(){(im.decode?im.decode():Promise.resolve()).catch(function(){}).then(function(){LV[z]=im;dirty=true})};im.src='assets/peta/z'+z+'.webp'}
+  var qi=0;function pump(){var n=0;for(var z in LOADING)if(!LV[z])n++;while(n<2&&qi<order.length){load(order[qi++]);n++}}
+  function want(z){for(var k=z-1;k<=z+2;k++)if(k>=6&&k<=18)load(k)}
+  function attr(z){return z<=9?'Imagery ©2026 NASA':z<=12?'Imagery ©2026 Google':'Imagery ©2026 Airbus, CNES / Airbus, Maxar Technologies'}
+  function drawLevel(img,z,zc,alpha){
+    var m=frame(),f=Math.pow(2,z-zc)/m*(img.naturalWidth/2800),iw=img.naturalWidth,ih=img.naturalHeight;
+    var sw=W*f,sh=H*f,x0=iw/2-sw/2,y0=ih/2-sh/2-SHIFT*f,cx0=Math.max(0,x0),cy0=Math.max(0,y0),cx1=Math.min(iw,x0+sw),cy1=Math.min(ih,y0+sh);
+    if(cx1<=cx0||cy1<=cy0)return;
+    mctx.globalAlpha=alpha;
+    mctx.drawImage(img,cx0,cy0,cx1-cx0,cy1-cy0,(cx0-x0)/f,(cy0-y0)/f,(cx1-cx0)/f,(cy1-cy0)/f);
+    mctx.globalAlpha=1;
+  }
+  function best(z){for(var k=z;k>=6;k--)if(LV[k])return k;for(k=z+1;k<=18;k++)if(LV[k])return k;return 0}
+  function drawMap(zc){
+    var m=frame(),off=Math.log2(Math.min(2800*m/W,4000*m/H)),zf=zc+off,z=clamp(Math.floor(zf),6,18),fr=zf-Math.floor(zf);
+    want(z);
+    mctx.setTransform(DPR,0,0,DPR,0,0);
+    mctx.fillStyle='#0b1c2c';mctx.fillRect(0,0,W,H);
+    var zb=LV[z]?z:best(z);
+    if(zb)drawLevel(LV[zb],zb,zc,1);
+    if(zb===z&&fr<.25&&z-1>=6&&LV[z-1])drawLevel(LV[z-1],z-1,zc,ease(1-fr/.25));
+    var g=mctx.createRadialGradient(W/2,H/2,Math.min(W,H)*.3,W/2,H/2,Math.max(W,H)*.75);
+    g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(5,15,12,.42)');mctx.fillStyle=g;mctx.fillRect(0,0,W,H);
+    mctx.fillStyle='rgba(255,170,90,.05)';mctx.fillRect(0,0,W,H);
+    return zb||z;
+  }
+
+  /* clouds: layered fbm the camera dives through */
+  var gl=null,uRes,uP,uTime;
+  try{gl=cc.getContext('webgl',{premultipliedAlpha:true,alpha:true,antialias:false})}catch(e){}
+  if(gl){
+    var VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    var FS='precision mediump float;uniform vec2 uRes;uniform float uP,uTime;'+
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'+
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);}'+
+      'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}'+
+      'void main(){vec2 uv=(gl_FragCoord.xy-.5*uRes)/uRes.y;vec4 acc=vec4(0.);'+
+      'for(int i=0;i<8;i++){float fi=float(i);float d=0.9+fi*0.5-uP*4.6;if(d<0.04)continue;float s=1./d;'+
+      'vec2 p=uv/s*0.95+vec2(fi*3.1,fi*7.7)+vec2(uTime*0.02,uTime*0.004);float n=fbm(p);float m=smoothstep(0.44,0.62,n);'+
+      'float a=m*smoothstep(0.04,0.55,d);float sh=fbm(p+vec2(0.12,-0.12));float lit=clamp(0.55+(n-sh)*3.0,0.,1.);'+
+      'vec3 col=mix(vec3(0.62,0.68,0.78),vec3(1.0,0.97,0.92),lit);col=mix(col,vec3(1.0,0.86,0.70),0.10*lit);'+
+      'acc.rgb+=(1.-acc.a)*col*a;acc.a+=(1.-acc.a)*a;}'+
+      'float fog=(1.-smoothstep(0.0,0.32,uP))*0.32;acc.rgb+=(1.-acc.a)*vec3(0.97,0.95,0.92)*fog;acc.a+=(1.-acc.a)*fog;gl_FragColor=acc;}';
+    function sh(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return o}
+    var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,VS));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(pr);
+    if(!gl.getProgramParameter(pr,gl.LINK_STATUS))gl=null;
+    else{gl.useProgram(pr);var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+      var pl=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(pl);gl.vertexAttribPointer(pl,2,gl.FLOAT,false,0,0);
+      uRes=gl.getUniformLocation(pr,'uRes');uP=gl.getUniformLocation(pr,'uP');uTime=gl.getUniformLocation(pr,'uTime')}
+  }
+  if(!gl){cc.style.background='radial-gradient(120% 80% at 50% 40%,#fff,#e8ecf2)'}
+  function drawClouds(p,time){
+    if(!gl){cc.style.opacity=1-lin(p,.35,.9);return}
+    gl.viewport(0,0,cc.width,cc.height);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform2f(uRes,cc.width,cc.height);gl.uniform1f(uP,p);gl.uniform1f(uTime,time);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+  }
+
+  /* overlays */
+  var selLine=document.getElementById('selLine'),selFill=document.getElementById('selFill'),siteLine=document.getElementById('siteLine'),siteFill=document.getElementById('siteFill');
+  var cSel=document.getElementById('cSel'),cDistH=document.getElementById('cDistH'),dists=[].slice.call(document.querySelectorAll('[data-dist]')),cNkve=document.getElementById('cNkve'),cGolf=document.getElementById('cGolf'),cSite=document.getElementById('cSite');
+  function path(rings,zc,lonlat){var s='';rings.forEach(function(r){r.forEach(function(pt,i){var q=lonlat?proj(pt[1],pt[0],zc):proj(pt[0],pt[1],zc);s+=(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)});s+='Z'});return s}
+  function drawOn(el,p){var L=el.getTotalLength();el.style.strokeDasharray=L;el.style.strokeDashoffset=L*(1-p)}
+  function put(el,o,x,y){el.style.opacity=o.toFixed(3);el.style.visibility=o>0.001?'visible':'hidden';el.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)'}
+  var PINS=[
+    {n:'Kuala Lumpur',s:'KL Sentral · 24 km',lat:3.1342,lon:101.6865,t0:5.8,t1:8.0,side:'u'},
+    {n:'Klang',s:'20 km',lat:3.0449,lon:101.4456,t0:6.1,t1:8.0,side:'d'},
+    {n:'Bukit Jelutong',s:'Shah Alam',lat:LAT,lon:LON,t0:5.6,t1:10.6,side:'l',big:1},
+    {n:'Masjid',s:'± 250 m',lat:3.0996002,lon:101.5387043,t0:11.7,t1:99,side:'r'}
+  ];
+  var pinBox=document.getElementById('pins');
+  PINS.forEach(function(p){var e=document.createElement('div');e.className='pin'+(p.big?' big':'');e.innerHTML='<div class="ring"></div><div class="dot"></div><div class="lab">'+p.n+'<i>'+p.s+'</i></div>';pinBox.appendChild(e);p.el=e;p.dot=e.querySelector('.dot');p.ring=e.querySelector('.ring');p.lab=e.querySelector('.lab')});
+  function overlays(t,zc){
+    var so=win(t,2.85,5.6,.3,.6);
+    selLine.style.opacity=so;selFill.style.opacity=so*lin(t,3.6,4.4);
+    if(so>0){var d=path(GEO.sel,zc,true);selLine.setAttribute('d',d);selFill.setAttribute('d',d);drawOn(selLine,ease(lin(t,2.9,4.1)))}
+    var top=Math.max(84,H*.16);
+    put(cSel,win(t,3.25,5.5,.4,.45),0,top+24*(1-eout(lin(t,3.25,3.9))));
+    put(cDistH,win(t,6.0,8.1,.3,.3),0,top-8);
+    dists.forEach(function(e,i){put(e,win(t,6.15+i*.18,8.1,.3,.3),-30*(1-eout(lin(t,6.15+i*.18,6.6+i*.18))),top+18+i*48)});
+    var sp=lin(t,11.2,11.4);
+    siteLine.style.opacity=sp;siteFill.style.opacity=sp*(.55+.45*Math.pow(Math.sin((t-11.9)*7),2))*lin(t,11.9,12.2);
+    if(sp>0){var d2=path([GEO.site],zc,false);siteLine.setAttribute('d',d2);siteFill.setAttribute('d',d2);drawOn(siteLine,ease(lin(t,11.25,12.0)))}
+    var q=proj(LAT,LON,zc),cw=cSite.offsetWidth||140;put(cSite,lin(t,11.9,12.2),q[0]-cw/2,q[1]-Math.max(110,170*frame()/0.36)+20*(1-eout(lin(t,11.9,12.4))));
+    q=proj(3.0952,101.5380,zc);put(cNkve,lin(t,10.9,11.3),q[0]-30,q[1]-16);
+    q=proj(3.0925,101.5372,zc);put(cGolf,win(t,10.5,12.0,.4,.4),q[0]-60,q[1]-12);
+    PINS.forEach(function(p){
+      var xy=proj(p.lat,p.lon,zc),o=win(t,p.t0,p.t1,.3,.35);
+      if(xy[0]<-40||xy[0]>W+40||xy[1]<-40||xy[1]>H+40)o=0;
+      p.el.style.opacity=o;p.el.style.visibility=o>0?'visible':'hidden';
+      if(o<=0)return;
+      p.el.style.transform='translate('+xy[0].toFixed(1)+'px,'+xy[1].toFixed(1)+'px)';
+      p.dot.style.transform='scale('+eback(lin(t,p.t0,p.t0+.4))+')';
+      var rp=((performance.now()/1000)%1.4)/1.4;p.ring.style.transform='scale('+(1+rp*3)+')';p.ring.style.opacity=(1-rp)*o;
+      var lw=p.lab.offsetWidth,lh=p.lab.offsetHeight;
+      var lx=p.side==='l'?-lw-18:p.side==='r'?18:-lw/2,ly=p.side==='u'?-lh-16:p.side==='d'?16:-lh/2;
+      if(xy[0]+lx+lw>W-12)lx=W-12-lw-xy[0];if(xy[0]+lx<12)lx=12-xy[0];
+      p.lab.style.textAlign=p.side==='u'||p.side==='d'?'center':p.side==='l'?'right':'left';
+      p.lab.style.transform='translate('+lx.toFixed(1)+'px,'+ly.toFixed(1)+'px)';
+      p.lab.style.opacity=lin(t,p.t0+.1,p.t0+.45);
+    });
+    var eo=lin(t,12.3,12.8);endcard.style.opacity=eo;endcard.style.transform='translateY('+(20*(1-eout(eo)))+'px)';endcard.classList.toggle('on',eo>.5);
+  }
+
+  /* sizing */
+  function size(){
+    W=stage.clientWidth;H=stage.clientHeight;DPR=Math.min(window.devicePixelRatio||1,1.75);
+    mc.width=Math.round(W*DPR);mc.height=Math.round(H*DPR);
+    var cs=Math.min(window.devicePixelRatio||1,2)*.5;cc.width=Math.max(2,Math.round(W*cs));cc.height=Math.max(2,Math.round(H*cs));
+    document.getElementById('ov').setAttribute('viewBox','0 0 '+W+' '+H);
+    dirty=true;
+  }
+
+  /* loop */
+  var cur=0,target=0,dirty=true,active=true,last=-1,lastSfx=0,t0=performance.now(),prevNow=t0;
+  function targetT(){var r=story.getBoundingClientRect(),span=story.offsetHeight-H;return clamp(-r.top/Math.max(1,span))*TEND}
+  function tick(now){
+    if(!active){prevNow=now;requestAnimationFrame(tick);return}
+    target=targetT();
+    var dt=Math.min(.25,(now-prevNow)/1000);prevNow=now;
+    cur+=(target-cur)*(1-Math.exp(-dt*9));if(Math.abs(target-cur)<.0005)cur=target;
+    var t=cur,time=(now-t0)/1000;
+    var cloudsOn=t<3.05;
+    if(cloudsOn){cc.style.display='block';drawClouds(clamp(t/2.9),time)}else cc.style.display='none';
+    if(dirty||Math.abs(t-last)>.0004||(t>5.5&&t<10.7)||t>11.6){
+      SHIFT=-(H>W?H*.13:H*.03)*ease(lin(t,10.6,12.4));
+      var zc=zcAt(t),z=drawMap(zc);overlays(t,zc);
+      gattr.textContent='Google · '+attr(z);gattr.style.opacity=lin(t,2.2,2.8);
+      last=t;dirty=false;
+    }
+    var hu=lin(t,.3,1.25);heroUi.style.opacity=1-hu;heroUi.style.transform='translateY('+(-50*hu)+'px)';heroUi.style.visibility=hu>=1?'hidden':'visible';
+    hint.style.opacity=1-lin(t,.05,.45);
+    prog.style.transform='scaleX('+(t/TEND).toFixed(4)+')';
+    /* little sounds at milestones, only when scrolling forward */
+    [[2.9,'whoosh'],[5.6,'pop'],[11.95,'sparkle']].forEach(function(m){if(lastSfx<m[0]&&t>=m[0])SFX.play(m[1])});lastSfx=t;
+    requestAnimationFrame(tick);
+  }
+  size();window.addEventListener('resize',function(){clearTimeout(size.t);size.t=setTimeout(size,120)});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){active=es[0].isIntersecting},{rootMargin:'100px'}).observe(story);
+  load(6);load(7);
+  window.addEventListener('load',function(){var iv=setInterval(function(){pump();if(qi>=order.length)clearInterval(iv)},350)});
+  requestAnimationFrame(tick);
+})();
+
 (function(){
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var snd=document.getElementById('snd');
@@ -694,33 +914,43 @@ var SFX=(function(){
     SFX.unlock();if(v)setTimeout(function(){SFX.play('pop')},30);
   });
 
-  /* hero: the windows light up once the lit render has loaded */
-  var hero=document.getElementById('hero'),lit=document.getElementById('litImg');
-  function lightsOn(){setTimeout(function(){hero.classList.add('on')},reduce?0:900)}
-  if(lit.complete&&lit.naturalWidth)lightsOn();else lit.addEventListener('load',lightsOn,{once:true});
-
-  /* header turns solid, sticky bar shows, after the hero */
-  var top=document.getElementById('top'),bar=document.getElementById('bar'),tick=false;
-  function onScroll(){tick=false;var y=window.scrollY,h=hero.offsetHeight;top.classList.toggle('solid',y>40);bar.classList.toggle('show',y>h*.6)}
+  /* sticky bar shows once the hero buttons have faded */
+  var bar=document.getElementById('bar'),tick=false;
+  function onScroll(){
+    tick=false;bar.classList.toggle('show',window.scrollY>window.innerHeight*.35);
+    /* towers: gentle push-in as each clip scrolls through; pre-launch photo parallax */
+    zooms.forEach(function(el){var r=el.getBoundingClientRect(),vh=window.innerHeight;if(r.bottom<0||r.top>vh)return;var p=clamp((vh-r.top)/(vh+r.height));el.style.setProperty('--z',(1.12-.12*p).toFixed(4))});
+    if(regbg){var r=regbg.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<window.innerHeight)regbg.style.setProperty('--py',(r.top*-.12).toFixed(1)+'px')}
+  }
+  function clamp(x){return Math.min(1,Math.max(0,x))}
+  var zooms=[].slice.call(document.querySelectorAll('[data-zoom]')).map(function(s){return s.querySelector('video')});
+  var regbg=document.querySelector('.regbg img');
   window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
   onScroll();
+
+  /* tower clips: play only while on screen (saves battery and data) */
+  var vids=[].slice.call(document.querySelectorAll('video.bgv'));
+  if('IntersectionObserver' in window){
+    var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.preload==='none')v.preload='auto';var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.2});
+    vids.forEach(function(v){vio.observe(v)});
+  }
 
   /* count-up numbers */
   function countUp(el){
     var to=parseFloat(el.getAttribute('data-to')),dec=+(el.getAttribute('data-dec')||0),t0=null;
     if(reduce){el.textContent=to.toFixed(dec);return}
-    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1300),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(step)}
-    requestAnimationFrame(step);
+    el.textContent=(to*.3).toFixed(dec);
+    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1400),e=1-Math.pow(1-p,3);el.textContent=(to*(.3+.7*e)).toFixed(dec);if(p<1)requestAnimationFrame(step)}
+    setTimeout(function(){requestAnimationFrame(step)},400);
   }
 
   /* reveal on scroll */
-  var targets=[].slice.call(document.querySelectorAll('[data-r],#callout,#bars,#map'));
+  var targets=[].slice.call(document.querySelectorAll('[data-r],#bars,.sc'));
   function show(el){
     if(el.classList.contains('in'))return;
     el.classList.add('in');
     [].forEach.call(el.querySelectorAll('.cu'),countUp);
-    if(el.id==='map'&&!reduce)[].forEach.call(el.querySelectorAll('animateMotion'),function(m){try{m.beginElement()}catch(e){}});
-    if(el.getAttribute('data-sfx'))SFX.play(el.getAttribute('data-sfx'));
+    if(el.classList.contains('unit'))SFX.play('rise');
   }
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
@@ -734,10 +964,22 @@ var SFX=(function(){
     });
   });
 
+  /* full video: plays in place with sound */
+  var vcard=document.getElementById('vcard');
+  function playVideo(){
+    if(vcard.querySelector('video'))return;
+    var v=document.createElement('video');v.src='assets/v/video-58s.mp4';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.poster='assets/v/video-poster.webp';
+    vcard.querySelector('img').replaceWith(v);[].forEach.call(vcard.querySelectorAll('.play,.dur'),function(e){e.remove()});
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+    try{fbq('trackCustom','VideoPlay')}catch(e){}
+  }
+  vcard.addEventListener('click',playVideo);
+  [].forEach.call(document.querySelectorAll('[data-playvid]'),function(a){a.addEventListener('click',function(){setTimeout(playVideo,reduce?0:900)})});
+
   /* floor plan lightbox */
   var lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
   function closeLb(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.classList.remove('lb-open')}
-  [].forEach.call(document.querySelectorAll('.u-img'),function(b){
+  [].forEach.call(document.querySelectorAll('.plan'),function(b){
     b.addEventListener('click',function(){
       var im=b.querySelector('img');lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;
       lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.classList.add('lb-open');
