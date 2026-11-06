@@ -88,6 +88,14 @@ a{color:inherit}
 .top-r{display:flex;align-items:center;gap:8px}
 .snd{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
 .snd .off{display:none}.snd[aria-pressed="false"] .on{display:none}.snd[aria-pressed="false"] .off{display:block}
+.mus .eq{display:none;align-items:flex-end;gap:2px;height:14px}
+.mus .eq i{display:block;width:3px;height:100%;border-radius:2px;background:currentColor;animation:eq 1s ease-in-out infinite}
+.mus .eq i:nth-child(2){animation-delay:-.35s}.mus .eq i:nth-child(3){animation-delay:-.7s}
+@keyframes eq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.mus[aria-pressed="true"]{background:var(--dusk);border-color:var(--dusk);color:var(--dusk-ink)}
+.mus[aria-pressed="true"] svg{display:none}.mus[aria-pressed="true"] .eq{display:flex}
+.hwa .ico{display:none}
+@media (max-width:420px){.top-r{gap:6px}.hwa{width:40px;padding:0}.hwa span{display:none}.hwa .ico{display:block}}
 
 /* ===== the flight: clouds -> Selangor -> the lot (scroll-driven) ===== */
 .story{position:relative;height:760vh;height:760svh;background:#0b1c2c}
@@ -356,7 +364,7 @@ footer a{color:var(--champ)}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .hint svg,.live i,.vcard .play,.unit.in .plan .hl{animation:none}
+  .hint svg,.live i,.vcard .play,.unit.in .plan .hl,.mus .eq i{animation:none}
 }
 </style>
 <script>
@@ -386,7 +394,11 @@ function logLead(type,data){
         <svg class="ico on" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg>
         <svg class="ico off" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
       </button>
-      <a class="btn btn-dusk btn-sm" data-wa href="https://wa.me/60182131314?text=Hi%20Felix%2C%20saya%20nak%20info%20Jelutong%20Heights%20(freehold%2C%20Bukit%20Jelutong).">WhatsApp</a>
+      <button class="snd mus" id="mus" type="button" aria-pressed="false" aria-label="Muzik latar hidup/mati" title="Muzik">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+      <a class="btn btn-dusk btn-sm hwa" data-wa href="https://wa.me/60182131314?text=Hi%20Felix%2C%20saya%20nak%20info%20Jelutong%20Heights%20(freehold%2C%20Bukit%20Jelutong)." aria-label="WhatsApp"><svg class="ico" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l.9-1.2 1.7.8-.4 1.6c-3.7.2-7.6-3.3-8.2-7.2l1.6-.5.8 1.7z"/></svg><span>WhatsApp</span></a>
     </div>
   </div>
 </header>
@@ -672,7 +684,7 @@ function logLead(type,data){
   <div class="wrap">
     <p class="who">Jelutong Heights · Felix · WhatsApp <a data-wa href="https://wa.me/60182131314">018-213 1314</a></p>
     <p>Maklumat di laman ini ialah maklumat awal sebelum pelancaran. Butiran rasmi mengikut dokumen pemaju semasa pelancaran. Imej bangunan dan kemudahan ialah ilustrasi konsep, bukan reka bentuk sebenar. Data harga dan sewa sekitar dari Brickz.my dan Mudah.my, Oktober 2026.</p>
-    <p>Imej satelit: Google Maps (Imagery ©2026 Airbus, CNES / Airbus, Maxar Technologies, NASA). Sempadan negeri: geoBoundaries. Garis tapak: © OpenStreetMap contributors. Muzik video: “Dream Culture” Kevin MacLeod (incompetech.com), CC BY 4.0.</p>
+    <p>Imej satelit: Google Maps (Imagery ©2026 Airbus, CNES / Airbus, Maxar Technologies, NASA). Sempadan negeri: geoBoundaries. Garis tapak: © OpenStreetMap contributors. Muzik: “Dream Culture” Kevin MacLeod (incompetech.com), CC BY 4.0.</p>
     <p><a href="privasi/">Notis privasi</a></p>
   </div>
 </footer>
@@ -705,6 +717,15 @@ var SFX=(function(){
     g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.05,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
     o.connect(g);g.connect(ctx.destination);o.start(t);o.stop(t+dur+.03);
   }
+  function noise(dur,f0,f1,q,vol,type){
+    if(!on||!ctx||ctx.state!=='running')return;
+    var n=Math.floor(ctx.sampleRate*dur),b=ctx.createBuffer(1,n,ctx.sampleRate),d=b.getChannelData(0);
+    for(var i=0;i<n;i++)d[i]=Math.random()*2-1;
+    var s=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g=ctx.createGain(),t=ctx.currentTime;
+    s.buffer=b;f.type=type||'bandpass';f.Q.value=q;f.frequency.setValueAtTime(f0,t);f.frequency.exponentialRampToValueAtTime(f1,t+dur);
+    g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+dur*.45);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    s.connect(f);f.connect(g);g.connect(ctx.destination);s.start(t);
+  }
   function whoosh(){
     if(!on||!ctx||ctx.state!=='running')return;
     var n=Math.floor(ctx.sampleRate*.4),b=ctx.createBuffer(1,n,ctx.sampleRate),d=b.getChannelData(0);
@@ -720,9 +741,13 @@ var SFX=(function(){
     rise:function(){tone(320,760,.6,'sine',.035);tone(640,1520,.6,'sine',.012)},
     sparkle:function(){[1319,1568,1976,2637].forEach(function(f,i){tone(f,f,.4,'sine',.028,i*.09)})},
     whoosh:whoosh,
+    wind:function(){noise(2.2,300,1400,.7,.07,'lowpass');noise(2.2,900,2600,2,.025)},
+    swipe:function(){noise(.28,1800,600,1.4,.05)},
+    tick:function(){tone(2600,2400,.03,'square',.012)},
+    thud:function(){tone(140,48,.45,'sine',.16);tone(70,40,.5,'triangle',.08);setTimeout(function(){S.sparkle()},140)},
     success:function(){[784,988,1175,1568].forEach(function(f,i){tone(f,f,.5,'sine',.055,i*.1)})}
   };
-  return {unlock:unlock,play:function(k){try{S[k]&&S[k]()}catch(e){}},isOn:function(){return on},set:function(v){on=v;try{localStorage.setItem('bj-sfx',v?'1':'0')}catch(e){}}};
+  return {ctx:function(){return ctx},unlock:unlock,play:function(k){try{S[k]&&S[k]()}catch(e){}},isOn:function(){return on},set:function(v){on=v;try{localStorage.setItem('bj-sfx',v?'1':'0')}catch(e){}}};
 })();
 
 /* ===== the flight: clouds (WebGL) + Google satellite zoom (canvas) + labels, driven by scroll ===== */
@@ -872,6 +897,7 @@ var SFX=(function(){
   }
 
   /* loop */
+  var SFXM=[[.25,'wind'],[2.9,'whoosh'],[3.0,'rise'],[5.6,'pop'],[6.15,'tick'],[6.33,'tick'],[6.51,'tick'],[6.69,'tick'],[10.4,'whoosh'],[11.95,'thud']];
   var cur=0,target=0,dirty=true,active=true,last=-1,lastSfx=0,t0=performance.now(),prevNow=t0;
   function targetT(){var r=story.getBoundingClientRect(),span=story.offsetHeight-H;return clamp(-r.top/Math.max(1,span))*TEND}
   function tick(now){
@@ -892,7 +918,7 @@ var SFX=(function(){
     hint.style.opacity=1-lin(t,.05,.45);
     prog.style.transform='scaleX('+(t/TEND).toFixed(4)+')';
     /* little sounds at milestones, only when scrolling forward */
-    [[2.9,'whoosh'],[5.6,'pop'],[11.95,'sparkle']].forEach(function(m){if(lastSfx<m[0]&&t>=m[0])SFX.play(m[1])});lastSfx=t;
+    SFXM.forEach(function(m){if(lastSfx<m[0]&&t>=m[0])SFX.play(m[1])});lastSfx=t;
     requestAnimationFrame(tick);
   }
   size();window.addEventListener('resize',function(){clearTimeout(size.t);size.t=setTimeout(size,120)});
@@ -902,13 +928,34 @@ var SFX=(function(){
   requestAnimationFrame(tick);
 })();
 
+/* background music: off until the visitor turns it on. Same track as the video, ~0.7 MB, loaded only on tap. */
+var BGM=(function(){
+  var a=null,g=null,on=false,duck=false,VOL=.34;
+  function ensure(){
+    if(a)return true;
+    var ctx=SFX.unlock();
+    a=new Audio('assets/v/bgm.mp3');a.loop=true;a.preload='auto';
+    if(ctx){try{var src=ctx.createMediaElementSource(a);g=ctx.createGain();g.gain.value=0;src.connect(g);g.connect(ctx.destination)}catch(e){g=null}}
+    if(!g)a.volume=VOL;
+    return true;
+  }
+  function fade(to,dur){var ctx=SFX.ctx();if(g&&ctx){var t=ctx.currentTime;g.gain.cancelScheduledValues(t);g.gain.setValueAtTime(g.gain.value,t);g.gain.linearRampToValueAtTime(to,t+dur)}}
+  function start(){ensure();var p=a.play();if(p&&p.catch)p.catch(function(){});fade(VOL,1.4)}
+  function stop(){if(!a)return;fade(0,.6);setTimeout(function(){if(!on||duck||document.hidden)a.pause()},650)}
+  document.addEventListener('visibilitychange',function(){if(!a||!on)return;if(document.hidden)a.pause();else if(!duck)start()});
+  return{toggle:function(){on=!on;if(on&&!duck)start();else stop();return on},duck:function(d){duck=d;if(!on)return;if(d)stop();else start()}};
+})();
+
 (function(){
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mus=document.getElementById('mus');
+  mus.addEventListener('click',function(){var v=BGM.toggle();mus.setAttribute('aria-pressed',v?'true':'false');try{fbq('trackCustom',v?'MusicOn':'MusicOff')}catch(e){}});
   var snd=document.getElementById('snd');
   snd.setAttribute('aria-pressed',SFX.isOn()?'true':'false');
-  function first(){SFX.unlock();document.removeEventListener('pointerdown',first,true);document.removeEventListener('keydown',first,true)}
-  document.addEventListener('pointerdown',first,true);
-  document.addEventListener('keydown',first,true);
+  /* phones only allow sound after a finished tap (touchend/pointerup/click), so keep trying until the audio is running */
+  var EVS=['pointerdown','pointerup','touchend','click','keydown'];
+  function first(){var c=SFX.unlock();if(c&&c.state==='running')EVS.forEach(function(n){document.removeEventListener(n,first,true)})}
+  EVS.forEach(function(n){document.addEventListener(n,first,true)});
   snd.addEventListener('click',function(){
     var v=!SFX.isOn();SFX.set(v);snd.setAttribute('aria-pressed',v?'true':'false');
     SFX.unlock();if(v)setTimeout(function(){SFX.play('pop')},30);
@@ -936,11 +983,13 @@ var SFX=(function(){
   }
 
   /* count-up numbers */
-  function countUp(el){
-    var to=parseFloat(el.getAttribute('data-to')),dec=+(el.getAttribute('data-dec')||0),t0=null;
+  function countUp(el,ticks){
+    var to=parseFloat(el.getAttribute('data-to')),dec=+(el.getAttribute('data-dec')||0),t0=null,k=0;
     if(reduce){el.textContent=to.toFixed(dec);return}
     el.textContent=(to*.3).toFixed(dec);
-    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1400),e=1-Math.pow(1-p,3);el.textContent=(to*(.3+.7*e)).toFixed(dec);if(p<1)requestAnimationFrame(step)}
+    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1400),e=1-Math.pow(1-p,3);el.textContent=(to*(.3+.7*e)).toFixed(dec);
+      if(ticks){if(p<1&&e>k*.14+.1){k++;SFX.play('tick')}if(p>=1)SFX.play('pop')}
+      if(p<1)requestAnimationFrame(step)}
     setTimeout(function(){requestAnimationFrame(step)},400);
   }
 
@@ -949,8 +998,9 @@ var SFX=(function(){
   function show(el){
     if(el.classList.contains('in'))return;
     el.classList.add('in');
-    [].forEach.call(el.querySelectorAll('.cu'),countUp);
+    [].forEach.call(el.querySelectorAll('.cu'),function(c,i){countUp(c,el.classList.contains('unit')&&i===0)});
     if(el.classList.contains('unit'))SFX.play('rise');
+    if(el.classList.contains('sc'))SFX.play('swipe');
   }
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
@@ -970,6 +1020,9 @@ var SFX=(function(){
     if(vcard.querySelector('video'))return;
     var v=document.createElement('video');v.src='assets/v/video-58s.mp4';v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.poster='assets/v/video-poster.webp';
     vcard.querySelector('img').replaceWith(v);[].forEach.call(vcard.querySelectorAll('.play,.dur'),function(e){e.remove()});
+    v.addEventListener('play',function(){BGM.duck(true)});
+    v.addEventListener('pause',function(){BGM.duck(false)});
+    v.addEventListener('ended',function(){BGM.duck(false)});
     var p=v.play();if(p&&p.catch)p.catch(function(){});
     try{fbq('trackCustom','VideoPlay')}catch(e){}
   }
